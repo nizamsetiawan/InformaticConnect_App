@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 
@@ -28,7 +27,7 @@ class SigninPage extends StatelessWidget {
             SizedBox(
               width: 350,
               child: TextFormField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                     labelText: 'E-mail Address',
                     border: OutlineInputBorder(
@@ -41,7 +40,7 @@ class SigninPage extends StatelessWidget {
             SizedBox(
               width: 350,
               child: TextFormField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 obscureText: true,
                 decoration: InputDecoration(
                     labelText: 'Password',
