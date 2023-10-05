@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 
-class ForgotPassPage extends StatelessWidget {
-  const ForgotPassPage({super.key});
+class ForgotPass2Page extends StatelessWidget {
+  const ForgotPass2Page({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +17,14 @@ class ForgotPassPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Forget Password',
+              'Enter Your Passcode',
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
                   color: Colors.black),
             ),
             const Text(
-              'Remember & input your email\nor phone number below',
+              'We have send the code to your device',
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 18,
@@ -32,24 +32,40 @@ class ForgotPassPage extends StatelessWidget {
                   color: Colors.black),
             ),
             const SizedBox(height: 10),
-            const SizedBox(
-              child: Icon(
-                Icons.lock,
-                size: 40,
-              ),
-            ),
             const SizedBox(height: 20),
             SizedBox(
               width: 350,
               child: TextFormField(
                 style: TextStyle(color: Colors.black),
+                obscureText: true,
                 decoration: InputDecoration(
-                    labelText: 'E-mail Address/Phone Number',
+                    labelText: 'Passcode',
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide:
                             const BorderSide(width: 1, color: Colors.black))),
               ),
+            ),
+            const SizedBox(height: 20),
+            const SizedBox(
+              child: Text.rich(TextSpan(children: [
+                TextSpan(
+                    text: 'Code expires in ',
+                    style: TextStyle(color: Colors.black)),
+                TextSpan(
+                    text: '02.00',
+                    style: TextStyle(color: AppColor.tertiarycolor))
+              ])),
+            ),
+            const SizedBox(
+              child: Text.rich(TextSpan(children: [
+                TextSpan(
+                    text: 'Did not receive code? ',
+                    style: TextStyle(color: Colors.black)),
+                TextSpan(
+                    text: 'Resend Code',
+                    style: TextStyle(color: AppColor.tertiarycolor))
+              ])),
             ),
             const SizedBox(height: 25),
             Container(
@@ -60,10 +76,10 @@ class ForgotPassPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/forgotpassword2');
+                  Navigator.of(context).pushNamed('/forgotpassword3');
                 },
                 child: const Text(
-                  'Send Code',
+                  'Verify Password',
                   style: TextStyle(color: AppColor.secondcolor),
                 ),
               ),

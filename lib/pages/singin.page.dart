@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:informaticconnect_app/config/app.color.dart';
 
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});
@@ -6,112 +8,86 @@ class SigninPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
+      body: Container(
+        color: AppColor.secondcolor,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Image.network(
+              'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Log In',
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
+            ),
+            const SizedBox(height: 20),
             SizedBox(
-              height: 100,
-              child: Center(
-                child: Image.asset(
-                  'assets/1.png',
-                  width: 100,
-                  height: 100,
-                ),
+              width: 350,
+              child: TextFormField(
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                    labelText: 'E-mail Address',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            const BorderSide(width: 1, color: Colors.black))),
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Selamat Datang\nSilahkan Mendaftar',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
-            ),
-            const SizedBox(height: 40),
-            const Text(
-              'Username',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w100),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
+            SizedBox(
+              width: 350,
               child: TextFormField(
+                style: TextStyle(color: Colors.black),
+                obscureText: true,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(width: 1, color: Colors.black),
-                  ),
-                ),
+                    labelText: 'Password',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            const BorderSide(width: 1, color: Colors.black))),
               ),
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'Email',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w100),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(width: 1, color: Colors.black),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Password',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w100),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(width: 1, color: Colors.black),
-                  ),
-                ),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text.rich(
-                    TextSpan(children: [
-                      TextSpan(text: 'Sudah punya akun? '),
-                      TextSpan(
-                        text: 'Login',
-                        style: TextStyle(
-                            color: Colors.orange,
-                            decoration: TextDecoration.underline),
-                      ),
-                    ]),
-                  ),
-                  Text(
-                    'Lupa password?',
-                    style: TextStyle(
-                        color: Colors.orange,
-                        decoration: TextDecoration.underline),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 35),
+            const SizedBox(height: 25),
             Container(
-              width: MediaQuery.of(context).size.width,
+              height: 40,
+              width: 350,
               decoration: BoxDecoration(
-                  color: const Color(0xFF1A3665),
-                  borderRadius: BorderRadius.circular(25)),
+                  color: AppColor.tertiarycolor,
+                  borderRadius: BorderRadius.circular(10)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/telegram');
+                  Navigator.of(context).pushNamed('/');
                 },
                 child: const Text(
-                  'Daftar',
-                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                  'CONTINUE',
+                  style: TextStyle(color: AppColor.secondcolor),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            const SizedBox(
+              child: Text.rich(TextSpan(children: [
+                TextSpan(
+                    text: 'Do not have any account? ',
+                    style: TextStyle(color: Colors.black)),
+                TextSpan(
+                  text: 'Sign Up here',
+                  style: TextStyle(color: AppColor.tertiarycolor),
+                ),
+              ])),
+            ),
+            SizedBox(
+              child: TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/forgotpassword');
+                },
+                child: const Text(
+                  'Forget Password?',
+                  style: TextStyle(color: AppColor.tertiarycolor),
                 ),
               ),
             )

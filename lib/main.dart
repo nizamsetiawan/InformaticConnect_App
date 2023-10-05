@@ -5,6 +5,8 @@ import 'package:informaticconnect_app/pages/event.page.dart';
 import 'package:informaticconnect_app/pages/eventdetail.page.dart';
 import 'package:informaticconnect_app/pages/eventsucces.dart';
 import 'package:informaticconnect_app/pages/forgotpass.page.dart';
+import 'package:informaticconnect_app/pages/forgotpass2.page.dart';
+import 'package:informaticconnect_app/pages/forgotpass3.page.dart';
 import 'package:informaticconnect_app/pages/home.page.dart';
 import 'package:informaticconnect_app/pages/singin.page.dart';
 import 'package:informaticconnect_app/pages/singup.page.dart';
@@ -47,6 +49,8 @@ class MyApp extends StatelessWidget {
         AppRoute.singup: (context) => const SingupPage(),
         AppRoute.login: (context) => const SigninPage(),
         AppRoute.forgotpassword: (context) => const ForgotPassPage(),
+        AppRoute.forgotpassword2: (context) => const ForgotPass2Page(),
+        AppRoute.forgotpassword3: (context) => const ForgotPass3Page(),
         AppRoute.home: (context) => const HomePage(),
         AppRoute.event: (context) => const EventPage(),
         AppRoute.eventdetail: (context) => const EventDetailPage(),

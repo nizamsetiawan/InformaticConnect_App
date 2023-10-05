@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 
-class ForgotPassPage extends StatelessWidget {
-  const ForgotPassPage({super.key});
+class ForgotPass3Page extends StatelessWidget {
+  const ForgotPass3Page({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,25 +17,32 @@ class ForgotPassPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Forget Password',
+              'Change Your Password',
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
                   color: Colors.black),
             ),
             const Text(
-              'Remember & input your email\nor phone number below',
+              'Make sure your remember your\npassword this time',
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                   color: Colors.black),
             ),
-            const SizedBox(height: 10),
-            const SizedBox(
-              child: Icon(
-                Icons.lock,
-                size: 40,
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 350,
+              child: TextFormField(
+                style: TextStyle(color: Colors.black),
+                obscureText: true,
+                decoration: InputDecoration(
+                    labelText: 'New Password',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            const BorderSide(width: 1, color: Colors.black))),
               ),
             ),
             const SizedBox(height: 20),
@@ -43,8 +50,9 @@ class ForgotPassPage extends StatelessWidget {
               width: 350,
               child: TextFormField(
                 style: TextStyle(color: Colors.black),
+                obscureText: true,
                 decoration: InputDecoration(
-                    labelText: 'E-mail Address/Phone Number',
+                    labelText: 'Confirm Password',
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide:
@@ -60,10 +68,10 @@ class ForgotPassPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/forgotpassword2');
+                  Navigator.of(context).pushNamed('/login');
                 },
                 child: const Text(
-                  'Send Code',
+                  'Change & Save Password',
                   style: TextStyle(color: AppColor.secondcolor),
                 ),
               ),
