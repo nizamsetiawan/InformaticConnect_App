@@ -3,6 +3,7 @@ class AppRoute {
   static const singup = '/singup';
   static const login = '/login';
   static const forgotpassword = '/forgotpassword';
+  static const main = '/main';
   static const home = '/home';
   static const searchresult = '/searchresultscreen';
   static const contentscreen = '/contentscreen';

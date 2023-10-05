@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:informaticconnect_app/config/app.route.dart';
 
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});
@@ -107,7 +108,7 @@ class SigninPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/telegram');
+                  Navigator.of(context).pushNamed(AppRoute.main);
                 },
                 child: const Text(
                   'Daftar',
