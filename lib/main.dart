@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:informaticconnect_app/pages/home.dart';
+import 'package:informaticconnect_app/pages/event.page.dart';
+import 'package:informaticconnect_app/pages/eventdetail.page.dart';
+import 'package:informaticconnect_app/pages/eventsucces.dart';
+import 'package:informaticconnect_app/pages/forgotpass.page.dart';
+import 'package:informaticconnect_app/pages/home.page.dart';
+import 'package:informaticconnect_app/pages/singin.page.dart';
 import 'package:informaticconnect_app/pages/singup.page.dart';
-import 'package:informaticconnect_app/pages/splashscree.dart';
+import 'package:informaticconnect_app/pages/splashscreen.page.dart';
 
 import 'config/app.color.dart';
 import 'config/app.route.dart';
@@ -39,6 +44,12 @@ class MyApp extends StatelessWidget {
         },
         AppRoute.splashscreen: (context) => const SplashscreenPage(),
         AppRoute.singup: (context) => const SingupPage(),
+        AppRoute.login: (context) => const SigninPage(),
+        AppRoute.forgotpassword: (context) => const ForgotPassPage(),
+        AppRoute.home: (context) => const HomePage(),
+        AppRoute.event: (context) => const EventPage(),
+        AppRoute.eventdetail: (context) => const EventDetailPage(),
+        AppRoute.eventsucces: (context) => const EventSuccesPage(),
       },
     );
   }
