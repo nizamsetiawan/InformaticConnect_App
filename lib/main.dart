@@ -35,11 +35,12 @@ class MyApp extends StatelessWidget {
           return FutureBuilder(
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
-                return const SplashscreenPage();
+                return const SigninPage();
               } else {
                 return const HomePage();
               }
             },
+            future: null,
           );
         },
         AppRoute.splashscreen: (context) => const SplashscreenPage(),
