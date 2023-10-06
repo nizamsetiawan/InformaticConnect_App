@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:informaticconnect_app/config/app.color.dart';
+
+import 'package:informaticconnect_app/config/app.route.dart';
+
 
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});
@@ -82,7 +86,11 @@ class SigninPage extends StatelessWidget {
             SizedBox(
               child: TextButton(
                 onPressed: () {
+
                   Navigator.of(context).pushNamed('/forgotpassword');
+
+                  Navigator.of(context).pushNamed(AppRoute.main);
+
                 },
                 child: const Text(
                   'Forget Password?',
