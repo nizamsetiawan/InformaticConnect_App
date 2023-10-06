@@ -36,11 +36,9 @@ class _MainLayoutState extends State<MainLayout> {
         onTap: (page) {
           setState(() {
             currentPage = page;
-            _page.animateToPage(
-              page, 
-              duration: const Duration(milliseconds: 500), 
-              curve: Curves.easeInOut
-            );
+            _page.animateToPage(page,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut);
           });
         },
         items: const <BottomNavigationBarItem>[

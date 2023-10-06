@@ -4,7 +4,6 @@ import 'package:informaticconnect_app/config/app.color.dart';
 
 import 'package:informaticconnect_app/config/app.route.dart';
 
-
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});
 
@@ -63,7 +62,7 @@ class SigninPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/');
+                  Navigator.of(context).pushNamed(AppRoute.main);
                 },
                 child: const Text(
                   'CONTINUE',
@@ -86,11 +85,7 @@ class SigninPage extends StatelessWidget {
             SizedBox(
               child: TextButton(
                 onPressed: () {
-
                   Navigator.of(context).pushNamed('/forgotpassword');
-
-                  Navigator.of(context).pushNamed(AppRoute.main);
-
                 },
                 child: const Text(
                   'Forget Password?',

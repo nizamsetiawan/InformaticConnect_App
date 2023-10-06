@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class EventPage extends StatelessWidget {
-  const EventPage({super.key});
+  const EventPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +19,18 @@ class EventPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-                height:
-                    20.0), // Jarak antara teks "On Going Event" dan konten di bawahnya
+              height: 20.0,
+            ), // Space between "On Going Event" text and content below
 
-            // Konten untuk "On Going Event"
+            // Content for "On Going Event"
             Expanded(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Gambar Event
+                  // Event Image
                   Container(
                     width: 100.0,
-                    height: 180.0,
+                    height: 200.0,
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.grey,
@@ -38,12 +38,12 @@ class EventPage extends StatelessWidget {
                       ),
                     ),
                     child: Image.asset(
-                        "assets/event_image.png"), // Ganti dengan path gambar yang sesuai
+                        "assets/event_image.png"), // Replace with the correct image path
                   ),
                   SizedBox(width: 16.0),
                   Container(
                     width: 200.0,
-                    height: 180.0,
+                    height: 200.0,
                     padding: EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                       border: Border.all(
@@ -55,7 +55,7 @@ class EventPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Judul Event",
+                          "Event Title",
                           style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
@@ -63,34 +63,34 @@ class EventPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Nama Pemateri",
+                          "Speaker Name",
                           style: TextStyle(
                             fontSize: 16.0,
                             color: Colors.grey,
                           ),
                         ),
                         Text(
-                          "Tanggal Event",
+                          "Event Date",
                           style: TextStyle(
                             fontSize: 16.0,
                             color: Colors.grey,
                           ),
                         ),
                         Text(
-                          "Harga",
+                          "Price",
                           style: TextStyle(
                             fontSize: 16.0,
                             color: Colors.grey,
                           ),
                         ),
-                        // Tombol panah ke arah kanan
+                        // Right arrow button
                         Positioned(
-                          right: 8.0, // Jarak dari tepi kanan
-                          bottom: 0.0, // Jarak dari tepi bawah
+                          right: 8.0,
+                          bottom: 8.0,
                           child: IconButton(
                             icon: Icon(Icons.arrow_forward),
                             onPressed: () {
-                              // Tambahkan logika yang sesuai di sini
+                              // Add appropriate logic here
                             },
                           ),
                         ),
@@ -101,7 +101,7 @@ class EventPage extends StatelessWidget {
               ),
             ),
 
-            // Teks "Upcoming Event"
+            // Text "Upcoming Event"
             Text(
               "Upcoming Event",
               style: TextStyle(
@@ -110,18 +110,18 @@ class EventPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-                height:
-                    20.0), // Jarak antara teks "Upcoming Event" dan konten di bawahnya
+              height: 20.0,
+            ), // Space between "Upcoming Event" text and content below
 
-            // Konten untuk "Upcoming Event"
+            // Content for "Upcoming Event"
             Expanded(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Gambar Event
+                  // Event Image
                   Container(
                     width: 100.0,
-                    height: 180.0,
+                    height: 200.0,
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.grey,
@@ -129,63 +129,61 @@ class EventPage extends StatelessWidget {
                       ),
                     ),
                     child: Image.asset(
-                        "assets/event_image.png"), // Ganti dengan path gambar yang sesuai
+                        "assets/event_image.png"), // Replace with the correct image path
                   ),
                   SizedBox(width: 16.0),
-                  Container(
-                    width: 200.0,
-                    height: 180.0,
-                    padding: EdgeInsets.all(16.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey,
-                        width: 1.0,
+                  Expanded(
+                    child: Container(
+                      width: 200.0,
+                      height: 200.0,
+                      padding: EdgeInsets.all(16.0),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1.0,
+                        ),
                       ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Judul Event",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Event Title",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Nama Pemateri",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.grey,
+                          Text(
+                            "Speaker Name",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.grey,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Tanggal Event",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.grey,
+                          Text(
+                            "Event Date",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.grey,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Harga",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.grey,
+                          Text(
+                            "Price",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.grey,
+                            ),
                           ),
-                        ),
-                        // Tombol panah ke arah kanan
-                        Positioned(
-                          right: 8.0, // Jarak dari tepi kanan
-                          bottom: 8.0, // Jarak dari tepi bawah
-                          child: IconButton(
+                          // Right arrow button
+                          IconButton(
                             icon: Icon(Icons.arrow_forward),
                             onPressed: () {
-                              // Tambahkan logika yang sesuai di sini
+                              // Add appropriate logic here
                             },
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
