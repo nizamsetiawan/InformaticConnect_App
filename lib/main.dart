@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:informaticconnect_app/pages/event.page.dart';
-import 'package:informaticconnect_app/pages/eventdetail.page.dart';
-import 'package:informaticconnect_app/pages/eventsucces.dart';
-import 'package:informaticconnect_app/pages/forgotpass.page.dart';
-import 'package:informaticconnect_app/pages/forgotpass2.page.dart';
-import 'package:informaticconnect_app/pages/forgotpass3.page.dart';
-import 'package:informaticconnect_app/pages/home.page.dart';
-import 'package:informaticconnect_app/pages/main.layout.dart';
-import 'package:informaticconnect_app/pages/mentor.page.dart';
-import 'package:informaticconnect_app/pages/notificationscreen.page.dart';
-import 'package:informaticconnect_app/pages/profile.page.dart';
-import 'package:informaticconnect_app/pages/singin.page.dart';
-import 'package:informaticconnect_app/pages/singup.page.dart';
-import 'package:informaticconnect_app/pages/splashscreen.page.dart';
-
+import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
+import 'package:informaticconnect_app/pages/onboarding/splashscreen.page.dart';
 import 'config/app.color.dart';
 import 'config/app.route.dart';
 
@@ -33,37 +20,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme:
             GoogleFonts.poppinsTextTheme().apply(bodyColor: Colors.black),
-        scaffoldBackgroundColor: AppColor.secondcolor,
-        primaryColor: AppColor.firstcolor,
+        scaffoldBackgroundColor: AppColor.bgscaffolod,
+        primaryColor: AppColor.buttoncolor,
       ),
       routes: {
         '/': (context) {
           return FutureBuilder(
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
-                return const SigninPage();
+                return const SplashscreenPage(); // halaman otomatis awal jika aplikasi diluncurkan
               } else {
-                return const HomePage();
+                return const ProfilePage();
               }
             },
             future: null,
           );
         },
-        AppRoute.splashscreen: (context) => const SplashscreenPage(),
-        AppRoute.singup: (context) => const SingupPage(),
-        AppRoute.login: (context) => const SigninPage(),
-        AppRoute.forgotpassword: (context) => const ForgotPassPage(),
-        AppRoute.forgotpassword2: (context) => const ForgotPass2Page(),
-        AppRoute.forgotpassword3: (context) => const ForgotPass3Page(),
-        AppRoute.main: (context) => const MainLayout(),
-        AppRoute.home: (context) => const HomePage(),
-        AppRoute.mentor: (context) => const MentorPage(),
-        AppRoute.event: (context) => const EventPage(),
-        AppRoute.eventdetail: (context) => const EventDetailPage(),
-        AppRoute.eventsucces: (context) => const EventSuccesPage(),
-        AppRoute.notificationscreen: (context) =>
-            const NotificationScreenPage(),
-        AppRoute.profile: (context) => const ProfilePage()
+        AppRoute.splashscreen: (context) =>
+            const SplashscreenPage(), //identifikasi sini tiap halaman
       },
     );
   }
