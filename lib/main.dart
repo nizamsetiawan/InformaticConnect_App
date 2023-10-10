@@ -5,6 +5,7 @@ import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.
 import 'package:informaticconnect_app/pages/onboarding/splashscreen.page.dart';
 import 'config/app.color.dart';
 import 'config/app.route.dart';
+import 'package:informaticconnect_app/pages/Home & Action Menu/home.page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,16 +29,16 @@ class MyApp extends StatelessWidget {
           return FutureBuilder(
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
-                return const SplashscreenPage(); // halaman otomatis awal jika aplikasi diluncurkan
+                return const HomePage(); // halaman otomatis awal jika aplikasi diluncurkan
               } else {
-                return const ProfilePage();
+                return const SplashscreenPage();
               }
             },
             future: null,
           );
         },
-        AppRoute.splashscreen: (context) =>
-            const SplashscreenPage(), //identifikasi sini tiap halaman
+        AppRoute.homepage: (context) =>
+            const HomePage(), //identifikasi sini tiap halaman
       },
     );
   }
