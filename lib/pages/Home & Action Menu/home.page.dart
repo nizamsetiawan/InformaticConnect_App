@@ -41,6 +41,7 @@ class HomePage extends StatefulWidget {
                   )
                 ],
               ),
+              Config.spaceSmall,
             ],
           ),
         ),
