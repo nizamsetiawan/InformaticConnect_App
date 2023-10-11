@@ -66,23 +66,25 @@ class HomePage extends StatefulWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 50,
                     ),
-                    Container(
-                      height: 60, 
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF5F5F7),
-                        borderRadius: BorderRadius.circular(30)),
-                        child: TextField(cursorHeight: 20, autofocus: false, decoration: InputDecoration(
-                        hintText: "Cari Mentor Favoritmu", 
-                        prefixIcon: Icon(Icons.search), 
-                        border: OutlineInputBorder(
-                          borderSide: 
-                              BorderSide(color: Colors.grey, width: 2),
-                          borderRadius: BorderRadius.circular(30))),
-                        ),
-                        )
+                    Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Container(
+                        height: 60, 
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFF5F5F7),
+                          borderRadius: BorderRadius.circular(30)),
+                          child: TextField(cursorHeight: 20, autofocus: false, decoration: InputDecoration(
+                          hintText: "Cari Mentor Favoritmu", 
+                          prefixIcon: Icon(Icons.search), 
+                          border: OutlineInputBorder(
+                            borderSide: 
+                                BorderSide(color: Colors.grey, width: 2),
+                            borderRadius: BorderRadius.circular(30))),
+                          ),
+                          ),
+                    )
                 ],
               )
             ],
