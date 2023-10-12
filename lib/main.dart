@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.content.page.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.page.dart';
-import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
-import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
+// import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
+// import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
 import 'package:informaticconnect_app/pages/Scheduled%20Appointments/appoinment.page.dart';
 import 'package:informaticconnect_app/pages/onboarding/splashscreen.page.dart';
 import 'config/app.color.dart';
@@ -33,14 +33,7 @@ class MyApp extends StatelessWidget {
           return FutureBuilder(
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
-
-                return const HomePage(); // halaman otomatis awal jika aplikasi diluncurkan
-
-
-                return const ArtikelPage(); // halaman otomatis awal jika aplikasi diluncurkan
-
-                return const Appointment(); // halaman otomatis awal jika aplikasi diluncurkan
-
+                return const SplashscreenPage(); // halaman otomatis awal jika aplikasi diluncurkan
               } else {
                 return const SplashscreenPage();
               }
@@ -52,17 +45,13 @@ class MyApp extends StatelessWidget {
         AppRoute.homepage: (context) =>
             const HomePage(), //identifikasi sini tiap halaman
 
-
         AppRoute.splashscreen: (context) => const SplashscreenPage(),
         AppRoute.courses: (context) => const CoursesPage(),
         AppRoute.coursescontent: (context) =>
             const CoursesContentPage(), //identifikasi sini tiap halaman
 
-        AppRoute.splashscreen: (context) =>
-            const SplashscreenPage(), //identifikasi sini tiap halaman
-        AppRoute.appointment: (context) =>
-            const Appointment(),
-
+        //identifikasi sini tiap halaman
+        AppRoute.appointment: (context) => const Appointment(),
       },
     );
   }

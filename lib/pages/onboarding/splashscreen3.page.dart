@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:informaticconnect_app/pages/onboarding/splashscreen1.page.dart';
+import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/home.page.dart';
 
 class Splashscreen3Page extends StatelessWidget {
-  const Splashscreen3Page({super.key});
+  const Splashscreen3Page({Key? key});
 
   void _navigateToNextPage(BuildContext context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => const Splashscreen1Page()),
+      MaterialPageRoute(builder: (context) => const HomePage()),
     );
   }
 
@@ -16,53 +16,50 @@ class Splashscreen3Page extends StatelessWidget {
       body: Stack(
         children: [
           Image.asset(
-            'assets/bgsplashscreen.png',
+            'assets/image/bgsplashscreen.png',
             width: double.infinity,
             fit: BoxFit.cover,
           ),
-          const Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Center(
-                child: Text(
-                  "Let's start living\ntechnology and well\nwith us right now!",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 35.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 100.0,
-              ),
-            ],
-          ),
           Align(
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.center, // Pusatkan elemen di tengah
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: ElevatedButton(
-                onPressed: () => _navigateToNextPage(context),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange, // Warna latar belakang tombol
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 20.0, // Tinggi tombol
-                    horizontal: 180.0, // Lebar tombol
+              padding:
+                  const EdgeInsets.only(top: 400.0), // Jarak di atas Column
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'learning &\n consultations easily\n anywhere anytime',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 35.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0), // Bentuk tombol
+                  SizedBox(height: 20.0),
+                  ElevatedButton(
+                    onPressed: () => _navigateToNextPage(context),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 15.0,
+                        horizontal: 120.0,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                    ),
+                    child: const Text(
+                      'Next',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                ),
-                child: const Text(
-                  'Next',
-                  style: TextStyle(
-                    fontSize: 18.0, // Ukuran teks tombol
-                    color: Colors.white, // Warna teks tombol
-                  ),
-                ),
+                ],
               ),
             ),
           ),
