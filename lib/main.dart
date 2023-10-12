@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           return FutureBuilder(
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
-                return const Appoinment(); // halaman otomatis awal jika aplikasi diluncurkan
+                return const Appointment(); // halaman otomatis awal jika aplikasi diluncurkan
               } else {
                 return const ProfilePage();
               }
@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
         },
         AppRoute.splashscreen: (context) =>
             const SplashscreenPage(), //identifikasi sini tiap halaman
-        AppRoute.appoinment: (context) =>
-            const Appoinment(),
+        AppRoute.appointment: (context) =>
+            const Appointment(),
       },
     );
   }

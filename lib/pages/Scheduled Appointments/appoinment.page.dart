@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Appoinment extends StatefulWidget {
-  const Appoinment({super.key});
+class Appointment extends StatefulWidget {
+  const Appointment({super.key});
 
   @override
-  State<Appoinment> createState() => _AppoinmentState();
+  State<Appointment> createState() => _AppointmentState();
 }
 
 enum FilterStatus {upcoming, completed, cancelled}
 
-class _AppoinmentState extends State<Appoinment> {
+class _AppointmentState extends State<Appointment> {
   FilterStatus status = FilterStatus.upcoming;
   Alignment _alignment = Alignment.centerLeft;
 
@@ -37,9 +37,21 @@ class _AppoinmentState extends State<Appoinment> {
       // switch(schedule['status']){}
       return schedule['status'] == status;
     }).toList();
-    return const Scaffold(
-      body: Center(
-        child: Text('Appoinment Page'),
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.all(24),
+        child: ListView(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 12),
+              child: Text('My Appointment', style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 24,
+              ),),
+            ),
+          ],
+        ),
       ),
     );
   }
