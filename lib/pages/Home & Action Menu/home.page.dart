@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:informaticconnect_app/pages/Home & Action Menu/mentor.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage ({Key? key}) : super(key: key);
@@ -12,6 +13,11 @@ class HomePage extends StatefulWidget {
 }
 
   class _HomePageState extends State<HomePage> {
+    final List<String> mentories = [
+      'Back End',
+      'Front End',
+      'Mobile'
+    ];
     List imageList = [
       {"id": 1, "image_path": 'assets/images/banner.png'},
       {"id": 2, "image_path": 'assets/images/bestsellersbanner.png'},
@@ -123,7 +129,16 @@ class HomePage extends StatefulWidget {
                         ],
                       )
                     ],
-                    )
+                    ),
+                  Container(
+                    padding: const EdgeInsets.all(8.0),
+                    margin: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        
+                      ],
+                    ),
+                  )
                     ],
               )
             ],
