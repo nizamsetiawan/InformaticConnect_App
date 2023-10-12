@@ -56,8 +56,11 @@ dev_dependencies:
 flutter:
   assets:
     - assets/logo.png
+    - assets/logo2.png
     - assets/welcomescreen.png
     - assets/bgsplashscreen.png
+    - assets/login1.png
+    - assets/login2.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
