@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:informaticconnect_app/pages/Courses/courses.content.page.dart';
+import 'package:informaticconnect_app/pages/Courses/courses.page.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
 import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
 import 'package:informaticconnect_app/pages/Scheduled%20Appointments/appoinment.page.dart';
@@ -42,10 +44,17 @@ class MyApp extends StatelessWidget {
             future: null,
           );
         },
+
+        AppRoute.splashscreen: (context) => const SplashscreenPage(),
+        AppRoute.courses: (context) => const CoursesPage(),
+        AppRoute.coursescontent: (context) =>
+            const CoursesContentPage(), //identifikasi sini tiap halaman
+
         AppRoute.splashscreen: (context) =>
             const SplashscreenPage(), //identifikasi sini tiap halaman
         AppRoute.appointment: (context) =>
             const Appointment(),
+
       },
     );
   }
