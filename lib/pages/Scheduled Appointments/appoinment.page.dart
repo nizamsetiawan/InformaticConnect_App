@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 
 class Appointment extends StatefulWidget {
@@ -9,7 +8,7 @@ class Appointment extends StatefulWidget {
   State<Appointment> createState() => _AppointmentState();
 }
 
-enum FilterStatus {Upcoming, Completed, Cancelled}
+enum FilterStatus { Upcoming, Completed, Cancelled }
 
 class _AppointmentState extends State<Appointment> {
   FilterStatus status = FilterStatus.Upcoming;
@@ -17,22 +16,47 @@ class _AppointmentState extends State<Appointment> {
 
   List<dynamic> schedules = [
     {
-      "mentor_name":"Nizam Setiawan",
-      "mentor_profile":"asset_image",
-      "status":FilterStatus.Upcoming,
+      "mentor_name": "Nizam Setiawan",
+      "mentor_profile": "asset_image",
+      "status": FilterStatus.Upcoming,
     },
     {
-      "mentor_name":"Nizam Setiawan",
-      "mentor_profile":"asset_image",
-      "status":FilterStatus.Completed,
+      "mentor_name": "Nizam Setiawan",
+      "mentor_profile": "asset_image",
+      "status": FilterStatus.Completed,
     },
     {
-      "mentor_name":"Nizam Setiawan",
-      "mentor_profile":"asset_image",
-      "status":FilterStatus.Cancelled,
+      "mentor_name": "Nizam Setiawan",
+      "mentor_profile": "asset_image",
+      "status": FilterStatus.Completed,
+    },
+    {
+      "mentor_name": "Nizam Setiawan",
+      "mentor_profile": "asset_image",
+      "status": FilterStatus.Completed,
+    },
+    {
+      "mentor_name": "Nizam Setiawan",
+      "mentor_profile": "asset_image",
+      "status": FilterStatus.Completed,
+    },
+    {
+      "mentor_name": "Nizam Setiawan",
+      "mentor_profile": "asset_image",
+      "status": FilterStatus.Completed,
+    },
+    {
+      "mentor_name": "Nizam Setiawan",
+      "mentor_profile": "asset_image",
+      "status": FilterStatus.Completed,
+    },
+    {
+      "mentor_name": "Nizam Setiawan",
+      "mentor_profile": "asset_image",
+      "status": FilterStatus.Cancelled,
     },
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     List<dynamic> filteredSchedules = schedules.where((var schedule) {
@@ -47,11 +71,14 @@ class _AppointmentState extends State<Appointment> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(top: 36, bottom: 12),
-              child: Text('My Appointment', style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: 24,
-              ),),
+              child: Text(
+                'My Appointment',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 24,
+                ),
+              ),
             ),
             Stack(
               children: [
@@ -61,37 +88,37 @@ class _AppointmentState extends State<Appointment> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         for (FilterStatus filterStatus in FilterStatus.values)
-                        Expanded(
-                          child: GestureDetector(
+                          Expanded(
+                              child: GestureDetector(
                             onTap: () {
                               setState(() {
                                 if (filterStatus == FilterStatus.Upcoming) {
                                   status = FilterStatus.Upcoming;
                                   _alignment = Alignment.centerLeft;
-                                } else if (filterStatus == FilterStatus.Completed) {
+                                } else if (filterStatus ==
+                                    FilterStatus.Completed) {
                                   status = FilterStatus.Completed;
                                   _alignment = Alignment.center;
-                                } else if (filterStatus == FilterStatus.Cancelled) {
+                                } else if (filterStatus ==
+                                    FilterStatus.Cancelled) {
                                   status = FilterStatus.Cancelled;
                                   _alignment = Alignment.centerRight;
                                 }
                               });
                             },
                             child: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 12),
-                              child: Center(
-                                child: Text(
-                                  filterStatus.name,
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18,
+                                padding: EdgeInsets.symmetric(vertical: 12),
+                                child: Center(
+                                  child: Text(
+                                    filterStatus.name,
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                    ),
                                   ),
-                                ),
-                              )
-                            ),
-                          )
-                        )
+                                )),
+                          ))
                       ],
                     ),
                     Container(
@@ -104,13 +131,10 @@ class _AppointmentState extends State<Appointment> {
                 Container(
                   padding: const EdgeInsets.only(top: 12, bottom: 12),
                   child: AnimatedAlign(
-                    alignment: _alignment, 
+                    alignment: _alignment,
                     duration: Duration(milliseconds: 00),
                     child: Container(
-                      // padding: EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                        color: AppColor.bgscaffolod
-                      ),
+                      decoration: BoxDecoration(color: AppColor.bgscaffolod),
                       child: Column(
                         children: [
                           Text(
@@ -118,7 +142,7 @@ class _AppointmentState extends State<Appointment> {
                             style: TextStyle(
                               color: AppColor.buttoncolor,
                               fontWeight: FontWeight.w700,
-                              fontSize: 18,
+                              fontSize: 16,
                             ),
                           ),
                           Container(
@@ -140,104 +164,407 @@ class _AppointmentState extends State<Appointment> {
                 itemBuilder: ((context, index) {
                   var _scheduled = filteredSchedules[index];
                   bool isLastElement = filteredSchedules.length + 1 == index;
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
-                    ),
-                    margin: !isLastElement 
-                    ? EdgeInsets.only(bottom: 24)
-                    : EdgeInsets.zero,
-                    color: Color.fromARGB(255, 40, 44, 57),
-                    child: Container(
-                      padding: EdgeInsets.all(12),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(right: 12),
-                                width: 80,
-                                height: 80,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.blueGrey
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    _scheduled['mentor_name'],
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.white,
-                                      fontSize: 18
-                                    ),
-                                  ),
-                                  SizedBox(height: 5,),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        'Messaging - ',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      Container(
-                                        child: Text(
-                                          status.name,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 5,),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        'Tanggal | ',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Jam',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Spacer(),
-                              IconButton(
-                                onPressed: () {}, 
-                                icon: Icon(
-                                  Icons.message_rounded, 
-                                  color: Colors.blue
-                                ),
-                              )
-                            ],
-                          )
-                        ],
+                  if (status == FilterStatus.Upcoming) {
+                    return Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      margin: !isLastElement
+                          ? EdgeInsets.only(bottom: 24)
+                          : EdgeInsets.zero,
+                      color: Color(0xff1F222A),
+                      child: Container(
+                        padding: EdgeInsets.all(12),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            upcomingAppointmentCard(_scheduled),
+                            upcomingButtonCard(context),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                })
+                    );
+                  } else if (status == FilterStatus.Completed) {
+                    return Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      margin: !isLastElement
+                          ? EdgeInsets.only(bottom: 24)
+                          : EdgeInsets.zero,
+                      color: Color(0xff1F222A),
+                      child: Container(
+                        padding: EdgeInsets.all(12),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            completedAppointmentCard(_scheduled),
+                            completedButtonCard(context),
+                          ],
+                        ),
+                      ),
+                    );
+                  } else if (status == FilterStatus.Cancelled) {
+                    return Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      margin: !isLastElement
+                          ? EdgeInsets.only(bottom: 24)
+                          : EdgeInsets.zero,
+                      color: Color(0xff1F222A),
+                      child: Container(
+                        padding: EdgeInsets.all(12),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            cancelledAppointmentCard(_scheduled),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+                  return null;
+                }),
+                padding: EdgeInsets.symmetric(vertical: 12),
               ),
             )
           ],
         ),
       ),
+    );
+  }
+
+  Row upcomingAppointmentCard(_scheduled) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          margin: EdgeInsets.only(right: 12),
+          width: 80,
+          height: 80,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12), color: Colors.blueGrey),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              _scheduled['mentor_name'],
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Messaging - ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: AppColor.buttoncolor, width: 1),
+                      borderRadius: BorderRadius.circular(4)),
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  child: Text(
+                    status.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: AppColor.buttoncolor,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Tanggal | ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+                Text(
+                  'Jam',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        Spacer(),
+        Container(
+          decoration: BoxDecoration(
+              color: Color.fromARGB(40, 36, 107, 253),
+              borderRadius: BorderRadius.circular(24)),
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.message_rounded, color: Colors.blue),
+          ),
+        )
+      ],
+    );
+  }
+
+  Row completedAppointmentCard(_scheduled) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          margin: EdgeInsets.only(right: 12),
+          width: 80,
+          height: 80,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12), color: Colors.blueGrey),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              _scheduled['mentor_name'],
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Messaging - ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xff07BD74), width: 1),
+                      borderRadius: BorderRadius.circular(4)),
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  child: Text(
+                    status.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff07BD74),
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Tanggal | ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+                Text(
+                  'Jam',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        Spacer(),
+        Container(
+          decoration: BoxDecoration(
+              color: Color.fromARGB(40, 36, 107, 253),
+              borderRadius: BorderRadius.circular(24)),
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.message_rounded, color: Colors.blue),
+          ),
+        )
+      ],
+    );
+  }
+
+  Row cancelledAppointmentCard(_scheduled) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          margin: EdgeInsets.only(right: 12),
+          width: 80,
+          height: 80,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12), color: Colors.blueGrey),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              _scheduled['mentor_name'],
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Messaging - ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xffF75555), width: 1),
+                      borderRadius: BorderRadius.circular(4)),
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  child: Text(
+                    status.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xffF75555),
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Tanggal | ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+                Text(
+                  'Jam',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        Spacer(),
+        Container(
+          decoration: BoxDecoration(
+              color: Color.fromARGB(40, 36, 107, 253),
+              borderRadius: BorderRadius.circular(24)),
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.message_rounded, color: Colors.blue),
+          ),
+        )
+      ],
+    );
+  }
+
+  Column completedButtonCard(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 16, bottom: 12),
+          height: 1,
+          width: MediaQuery.of(context).size.width,
+          color: Colors.grey,
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColor.bgwidget,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        side:
+                            BorderSide(color: AppColor.buttoncolor, width: 2))),
+                onPressed: () {},
+                child: const Text(
+                  'Book Again',
+                  style: TextStyle(color: AppColor.buttoncolor),
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Column upcomingButtonCard(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 16, bottom: 12),
+          height: 1,
+          width: MediaQuery.of(context).size.width,
+          color: Colors.grey,
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColor.bgwidget,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        side:
+                            BorderSide(color: AppColor.buttoncolor, width: 2))),
+                onPressed: () {},
+                child: const Text(
+                  'Cancel Appointment',
+                  style: TextStyle(color: AppColor.buttoncolor),
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }
