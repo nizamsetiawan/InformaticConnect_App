@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,9 +12,17 @@ class HomePage extends StatefulWidget {
 }
 
   class _HomePageState extends State<HomePage> {
+    List imageList = [
+      {"id": 1, "image_path": 'assets/images/banner.png'},
+      {"id": 2, "image_path": 'assets/images/bestsellersbanner.png'},
+      {"id": 3, "image_path": 'assets/images/banner.png'}
+    ];
+    final CarouselController carouselController = CarouselController();
+    int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       backgroundColor: Colors.white,
         bottomNavigationBar: BottomNavigationBar(items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home", backgroundColor: Colors.black),
@@ -21,8 +30,7 @@ class HomePage extends StatefulWidget {
           BottomNavigationBarItem(icon: Icon(Icons.picture_as_pdf), label: "Course", backgroundColor: Colors.green),
           BottomNavigationBarItem(icon: Icon(Icons.edit_document), label: "Articles", backgroundColor: Colors.blue),
           BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: "Profile", backgroundColor: Colors.red),
-        ]), body: SafeArea(
-          child: Column(
+        ]), body: ListView(
         children: [
           Stack(
             children: [
@@ -64,10 +72,7 @@ class HomePage extends StatefulWidget {
                           )
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    ),
-                    Padding(
+                  ),Padding(
                       padding: const EdgeInsets.all(15),
                       child: Container(
                         height: 60, 
@@ -84,12 +89,46 @@ class HomePage extends StatefulWidget {
                             borderRadius: BorderRadius.circular(30))),
                           ),
                           ),
+                    ),
+                    Column(children: [
+                      Stack(
+                        children: [
+                          InkWell(
+                            onTap: (){
+                              print(currentIndex);
+                            },
+                            child: CarouselSlider(
+                              items: imageList
+                              .map(
+                                (item) => Image.asset(
+                                  item['image_path'],
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                  ),
+                                  )
+                                  .toList(),
+                                  carouselController: carouselController, 
+                                options: CarouselOptions(
+                                  scrollPhysics: const BouncingScrollPhysics(),
+                                  autoPlay: true,
+                                  aspectRatio: 2,
+                                  viewportFraction: 1,
+                                  onPageChanged: (index, reason) {
+                                    setState(() {
+                                      currentIndex = index;
+                                    });
+                                  },
+                                ))
+                          ),
+                        ],
+                      )
+                    ],
                     )
-                ],
+                    ],
               )
             ],
           )
         ],
-          )),);
+          ),);
   }
 }
