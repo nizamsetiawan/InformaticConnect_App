@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
+import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
 import 'package:informaticconnect_app/pages/onboarding/splashscreen.page.dart';
 import 'config/app.color.dart';
 import 'config/app.route.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           return FutureBuilder(
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
-                return const SplashscreenPage(); // halaman otomatis awal jika aplikasi diluncurkan
+                return const ArtikelPage(); // halaman otomatis awal jika aplikasi diluncurkan
               } else {
                 return const ProfilePage();
               }
