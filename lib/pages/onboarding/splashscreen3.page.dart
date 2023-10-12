@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:informaticconnect_app/config/app.route.dart';
+import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/login.page.dart';
 import 'package:informaticconnect_app/pages/onboarding/splashscreen1.page.dart';
 
 class Splashscreen3Page extends StatelessWidget {
@@ -6,7 +8,7 @@ class Splashscreen3Page extends StatelessWidget {
 
   void _navigateToNextPage(BuildContext context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => const Splashscreen1Page()),
+      MaterialPageRoute(builder: (context) => const LoginPage()),
     );
   }
 
@@ -45,7 +47,9 @@ class Splashscreen3Page extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
               child: ElevatedButton(
-                onPressed: () => _navigateToNextPage(context),
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoute.login);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange, // Warna latar belakang tombol
                   padding: const EdgeInsets.symmetric(
