@@ -9,6 +9,7 @@ import 'package:informaticconnect_app/pages/Scheduled%20Appointments/appoinment.
 import 'package:informaticconnect_app/pages/onboarding/splashscreen.page.dart';
 import 'config/app.color.dart';
 import 'config/app.route.dart';
+import 'package:informaticconnect_app/pages/Home & Action Menu/home.page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,17 +34,24 @@ class MyApp extends StatelessWidget {
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
 
+                return const HomePage(); // halaman otomatis awal jika aplikasi diluncurkan
+
+
                 return const ArtikelPage(); // halaman otomatis awal jika aplikasi diluncurkan
 
                 return const Appointment(); // halaman otomatis awal jika aplikasi diluncurkan
 
               } else {
-                return const ProfilePage();
+                return const SplashscreenPage();
               }
             },
             future: null,
           );
         },
+
+        AppRoute.homepage: (context) =>
+            const HomePage(), //identifikasi sini tiap halaman
+
 
         AppRoute.splashscreen: (context) => const SplashscreenPage(),
         AppRoute.courses: (context) => const CoursesPage(),
