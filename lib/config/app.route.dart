@@ -3,4 +3,5 @@ class AppRoute {
   static const splashscreen = '/splashscreen';
   static const profile = '/profile';
   static const artikel = '/artikel';
+  static const appointment = '/appointment';
 }
