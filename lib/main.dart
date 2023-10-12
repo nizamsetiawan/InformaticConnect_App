@@ -36,8 +36,10 @@ class MyApp extends StatelessWidget {
             future: null,
           );
         },
-        AppRoute.splashscreen: (context) =>
-            const SplashscreenPage(), //identifikasi sini tiap halaman
+        AppRoute.splashscreen: (context) => const SplashscreenPage(),
+        AppRoute.courses: (context) => const CoursesPage(),
+        AppRoute.coursescontent: (context) =>
+            const CoursesContentPage(), //identifikasi sini tiap halaman
       },
     );
   }
