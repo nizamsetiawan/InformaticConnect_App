@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:get/get.dart';
+// import 'package:flutter/rendering.dart';
+// import 'package:get/get.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 
 class CoursesPage extends StatelessWidget {
@@ -11,7 +11,7 @@ class CoursesPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.bgscaffolod,
       appBar: AppBar(
-        title: Text("Courses"),
+        title: const Text("Courses"),
         backgroundColor: AppColor.bgscaffolod,
       ),
       body: ListView(
@@ -21,7 +21,7 @@ class CoursesPage extends StatelessWidget {
             decoration: BoxDecoration(
                 color: AppColor.bgwidget,
                 borderRadius: BorderRadius.circular(24)),
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               top: 24,
               left: 24,
               right: 24,
@@ -33,7 +33,7 @@ class CoursesPage extends StatelessWidget {
                   height: 110,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(16)),
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     left: 16,
                     right: 16,
                   ),
@@ -46,29 +46,29 @@ class CoursesPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Title Video A",
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Container(
                         width: 202,
                         height: 1,
                         color: AppColor.dividercolor,
                       ),
-                      SizedBox(height: 14),
-                      Text(
+                      const SizedBox(height: 14),
+                      const Text(
                         "Front-End Web",
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.normal,
                             color: Colors.white),
                       ),
-                      SizedBox(height: 14),
-                      Row(
+                      const SizedBox(height: 14),
+                      const Row(
                         children: [
                           Icon(
                             Icons.star,
@@ -105,7 +105,7 @@ class CoursesPage extends StatelessWidget {
             decoration: BoxDecoration(
                 color: AppColor.bgwidget,
                 borderRadius: BorderRadius.circular(24)),
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               top: 24,
               left: 24,
               right: 24,
@@ -117,7 +117,7 @@ class CoursesPage extends StatelessWidget {
                   height: 110,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(16)),
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     left: 16,
                     right: 16,
                   ),
@@ -130,29 +130,29 @@ class CoursesPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Title Video B",
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Container(
                         width: 202,
                         height: 1,
                         color: AppColor.dividercolor,
                       ),
-                      SizedBox(height: 14),
-                      Text(
+                      const SizedBox(height: 14),
+                      const Text(
                         "Front-End Web",
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.normal,
                             color: Colors.white),
                       ),
-                      SizedBox(height: 14),
-                      Row(
+                      const SizedBox(height: 14),
+                      const Row(
                         children: [
                           Icon(
                             Icons.star,

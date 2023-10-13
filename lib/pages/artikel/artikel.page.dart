@@ -5,8 +5,11 @@ class ArtikelPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text("test", style: TextStyle(color: Colors.white),),
+    return const Scaffold(
+      body: Text(
+        "test",
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }

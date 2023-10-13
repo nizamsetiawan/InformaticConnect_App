@@ -6,7 +6,7 @@ class Splashscreen3Page extends StatelessWidget {
 
   void _navigateToNextPage(BuildContext context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => LoginPage()),
+      MaterialPageRoute(builder: (context) => const LoginPage()),
     );
   }
 
@@ -29,7 +29,7 @@ class Splashscreen3Page extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'learning &\n consultations easily\n anywhere anytime',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -38,7 +38,7 @@ class Splashscreen3Page extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   ElevatedButton(
                     onPressed: () => _navigateToNextPage(context),
                     style: ElevatedButton.styleFrom(

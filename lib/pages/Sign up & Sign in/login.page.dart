@@ -20,7 +20,8 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: Image.asset('assets/login1.png', height: 275, width: 275),
+              child: Image.asset('assets/image/login1.png',
+                  height: 275, width: 275),
             ),
             const SizedBox(height: 20),
             const Text(
@@ -42,7 +43,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/login2.png',
+                      'assets/image/login2.png',
                       height: 18,
                       width: 18,
                     ),

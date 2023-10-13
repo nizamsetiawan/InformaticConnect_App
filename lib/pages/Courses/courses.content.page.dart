@@ -11,7 +11,7 @@ class CoursesContentPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.bgscaffolod,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {},
         ),
       ),
@@ -20,7 +20,7 @@ class CoursesContentPage extends StatelessWidget {
           Container(
             height: 240,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(24)),
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               top: 24,
               left: 24,
               right: 24,
@@ -31,29 +31,29 @@ class CoursesContentPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   horizontal: 24,
                   vertical: 16,
                 ),
                 child: Container(
-                  constraints: BoxConstraints(
+                  constraints: const BoxConstraints(
                     maxWidth: 400,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum",
                         style: TextStyle(
                           fontSize: 24,
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Dec 22, 2022",
                             style: TextStyle(
                               fontSize: 12,
@@ -61,13 +61,13 @@ class CoursesContentPage extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(width: 16),
+                          const SizedBox(width: 16),
                           Container(
-                            padding: EdgeInsets.all(6),
+                            padding: const EdgeInsets.all(6),
                             decoration: BoxDecoration(
                                 color: AppColor.bgwidget,
                                 borderRadius: BorderRadius.circular(6)),
-                            child: Text(
+                            child: const Text(
                               "android",
                               style: TextStyle(
                                 fontSize: 10,
@@ -78,14 +78,14 @@ class CoursesContentPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Container(
                         width: 400,
                         height: 1,
                         color: AppColor.dividercolor,
                       ),
-                      SizedBox(height: 16),
-                      Text(
+                      const SizedBox(height: 16),
+                      const Text(
                         "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum AndroidDec 22, 2022 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum AndroidDec 22, 2022 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum AndroidDec 22, 2022 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum AndroidDec 22,",
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),

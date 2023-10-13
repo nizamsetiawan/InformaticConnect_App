@@ -20,9 +20,11 @@ class SigninPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Center(
-              child: Image.asset('assets/logo2.png', height: 275, width: 275),
+              child: Image.asset(
+                'assets/image/logo2.png',
+                height: 200,
+              ),
             ),
-            const SizedBox(height: 20),
             const Text(
               'Login to Your Account',
               style: TextStyle(
@@ -36,15 +38,15 @@ class SigninPage extends StatelessWidget {
               child: TextFormField(
                 style: const TextStyle(color: AppColor.white),
                 decoration: InputDecoration(
-                  fillColor: Color.fromARGB(255, 49, 49, 49),
+                  fillColor: const Color.fromARGB(255, 49, 49, 49),
                   filled: true,
                   labelText: 'Email',
-                  labelStyle: TextStyle(color: AppColor.white),
+                  labelStyle: const TextStyle(color: AppColor.white),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                     borderSide: const BorderSide(color: Colors.white),
                   ),
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.email,
                     color: Colors.white,
                     size: 18,
@@ -59,15 +61,15 @@ class SigninPage extends StatelessWidget {
                 style: const TextStyle(color: AppColor.white),
                 obscureText: true,
                 decoration: InputDecoration(
-                  fillColor: Color.fromARGB(255, 49, 49, 49),
+                  fillColor: const Color.fromARGB(255, 49, 49, 49),
                   filled: true,
                   labelText: 'Password',
-                  labelStyle: TextStyle(color: AppColor.white),
+                  labelStyle: const TextStyle(color: AppColor.white),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                     borderSide: const BorderSide(color: Colors.white),
                   ),
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.lock,
                     color: Colors.white,
                     size: 18,
@@ -84,7 +86,7 @@ class SigninPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(AppRoute.login);
+                  Navigator.of(context).pushNamed(AppRoute.homepage);
                 },
                 child: const Text(
                   'Sign in',
@@ -105,10 +107,10 @@ class SigninPage extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
+            const SizedBox(
               height: 40,
               width: 350,
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
@@ -140,7 +142,7 @@ class SigninPage extends StatelessWidget {
               height: 50,
               width: 70,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 44, 44, 43),
+                  color: const Color.fromARGB(255, 44, 44, 43),
                   borderRadius: BorderRadius.circular(15)),
               child: TextButton(
                 child: Row(
@@ -148,7 +150,7 @@ class SigninPage extends StatelessWidget {
                   children: [
                     Center(
                       child: Image.asset(
-                        'assets/login2.png',
+                        'assets/image/login2.png',
                         height: 20,
                         width: 20,
                       ),
@@ -156,7 +158,7 @@ class SigninPage extends StatelessWidget {
                   ],
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushNamed(AppRoute.signin);
+                  Navigator.of(context).pushNamed(AppRoute.homepage);
                 },
               ),
             ),
