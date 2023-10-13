@@ -135,7 +135,11 @@ class HomePage extends StatefulWidget {
                     margin: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        
+                        mentories.map((Mentor) => FilterChip(
+                          label: Text(Mentor), 
+                          onSelected: (selected){
+                            
+                          })),
                       ],
                     ),
                   )
