@@ -28,7 +28,6 @@ class _AppointmentState extends State<Appointment> {
     {
       "mentor_name": "Nizam Setiawan",
       "mentor_profile": "asset_image",
-
       "status": FilterStatus.Completed,
     },
     {
@@ -54,7 +53,6 @@ class _AppointmentState extends State<Appointment> {
     {
       "mentor_name": "Nizam Setiawan",
       "mentor_profile": "asset_image",
-
       "status": FilterStatus.Cancelled,
     },
   ];
@@ -72,13 +70,8 @@ class _AppointmentState extends State<Appointment> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-
-              padding: EdgeInsets.only(top: 36, bottom: 12),
-              child: Text(
-
               padding: const EdgeInsets.only(top: 36, bottom: 12),
               child: const Text(
-
                 'My Appointment',
                 style: TextStyle(
                   color: Colors.white,
@@ -113,26 +106,15 @@ class _AppointmentState extends State<Appointment> {
                                 }
                               });
                             },
-
-                                padding: EdgeInsets.symmetric(vertical: 12),
-                                child: Center(
-                                  child: Text(
-                                    filterStatus.name,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16,
-
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 12),
+                            child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 12),
                                 child: Center(
                                   child: Text(
                                     filterStatus.name,
                                     style: const TextStyle(
                                       color: Colors.grey,
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-
+                                      fontSize: 16,
                                     ),
                                   ),
                                 )),
@@ -150,17 +132,9 @@ class _AppointmentState extends State<Appointment> {
                   padding: const EdgeInsets.only(top: 12, bottom: 12),
                   child: AnimatedAlign(
                     alignment: _alignment,
-
-                    duration: Duration(milliseconds: 00),
-                    child: Container(
-                      decoration: BoxDecoration(color: AppColor.bgscaffolod),
-
                     duration: const Duration(milliseconds: 00),
                     child: Container(
-                      // padding: EdgeInsets.symmetric(horizontal: 8),
-                      decoration:
-                          const BoxDecoration(color: AppColor.bgscaffolod),
-
+                      decoration: const BoxDecoration(color: AppColor.bgscaffolod),
                       child: Column(
                         children: [
                           Text(
@@ -186,131 +160,39 @@ class _AppointmentState extends State<Appointment> {
             ),
             Expanded(
               child: ListView.builder(
-
                 itemCount: filteredSchedules.length,
                 itemBuilder: ((context, index) {
                   var _scheduled = filteredSchedules[index];
                   bool isLastElement = filteredSchedules.length + 1 == index;
                   if (status == FilterStatus.Upcoming) {
-
-                  itemCount: filteredSchedules.length,
-                  itemBuilder: ((context, index) {
-                    var scheduled = filteredSchedules[index];
-                    bool isLastElement = filteredSchedules.length + 1 == index;
-
                     return Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       margin: !isLastElement
-
-                          ? EdgeInsets.only(bottom: 24)
-                          : EdgeInsets.zero,
-                      color: Color(0xff1F222A),
-                      child: Container(
-                        padding: EdgeInsets.all(12),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            upcomingAppointmentCard(_scheduled),
-                            upcomingButtonCard(context),
-
                           ? const EdgeInsets.only(bottom: 24)
                           : EdgeInsets.zero,
-                      color: const Color.fromARGB(255, 40, 44, 57),
+                      color: const Color(0xff1F222A),
                       child: Container(
                         padding: const EdgeInsets.all(12),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Container(
-                                  margin: const EdgeInsets.only(right: 12),
-                                  width: 80,
-                                  height: 80,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Colors.blueGrey),
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      scheduled['mentor_name'],
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                          color: Colors.white,
-                                          fontSize: 18),
-                                    ),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    Row(
-                                      children: [
-                                        const Text(
-                                          'Messaging - ',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        Text(
-                                          status.name,
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    const Row(
-                                      children: [
-                                        Text(
-                                          'Tanggal | ',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Jam',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                const Spacer(),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(Icons.message_rounded,
-                                      color: Colors.blue),
-                                )
-                              ],
-                            )
-
+                            upcomingAppointmentCard(_scheduled),
+                            upcomingButtonCard(context),
                           ],
                         ),
                       ),
                     );
-
                   } else if (status == FilterStatus.Completed) {
                     return Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       margin: !isLastElement
-                          ? EdgeInsets.only(bottom: 24)
+                          ? const EdgeInsets.only(bottom: 24)
                           : EdgeInsets.zero,
-                      color: Color(0xff1F222A),
+                      color: const Color(0xff1F222A),
                       child: Container(
-                        padding: EdgeInsets.all(12),
+                        padding: const EdgeInsets.all(12),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -325,11 +207,11 @@ class _AppointmentState extends State<Appointment> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       margin: !isLastElement
-                          ? EdgeInsets.only(bottom: 24)
+                          ? const EdgeInsets.only(bottom: 24)
                           : EdgeInsets.zero,
-                      color: Color(0xff1F222A),
+                      color: const Color(0xff1F222A),
                       child: Container(
-                        padding: EdgeInsets.all(12),
+                        padding: const EdgeInsets.all(12),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -341,11 +223,8 @@ class _AppointmentState extends State<Appointment> {
                   }
                   return null;
                 }),
-                padding: EdgeInsets.symmetric(vertical: 12),
+                padding: const EdgeInsets.symmetric(vertical: 12),
               ),
-
-                  })),
-
             )
           ],
         ),
@@ -358,7 +237,7 @@ class _AppointmentState extends State<Appointment> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.only(right: 12),
+          margin: const EdgeInsets.only(right: 12),
           width: 80,
           height: 80,
           decoration: BoxDecoration(
@@ -369,18 +248,18 @@ class _AppointmentState extends State<Appointment> {
           children: [
             Text(
               _scheduled['mentor_name'],
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.w700,
                 color: Colors.white,
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Row(
               children: [
-                Text(
+                const Text(
                   'Messaging - ',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -392,10 +271,10 @@ class _AppointmentState extends State<Appointment> {
                   decoration: BoxDecoration(
                       border: Border.all(color: AppColor.buttoncolor, width: 1),
                       borderRadius: BorderRadius.circular(4)),
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                   child: Text(
                     status.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       color: AppColor.buttoncolor,
                       fontSize: 12,
@@ -404,10 +283,10 @@ class _AppointmentState extends State<Appointment> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Row(
+            const Row(
               children: [
                 Text(
                   'Tanggal | ',
@@ -429,14 +308,14 @@ class _AppointmentState extends State<Appointment> {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           decoration: BoxDecoration(
-              color: Color.fromARGB(40, 36, 107, 253),
+              color: const Color.fromARGB(40, 36, 107, 253),
               borderRadius: BorderRadius.circular(24)),
           child: IconButton(
             onPressed: () {},
-            icon: Icon(Icons.message_rounded, color: Colors.blue),
+            icon: const Icon(Icons.message_rounded, color: Colors.blue),
           ),
         )
       ],
@@ -448,7 +327,7 @@ class _AppointmentState extends State<Appointment> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.only(right: 12),
+          margin: const EdgeInsets.only(right: 12),
           width: 80,
           height: 80,
           decoration: BoxDecoration(
@@ -459,18 +338,18 @@ class _AppointmentState extends State<Appointment> {
           children: [
             Text(
               _scheduled['mentor_name'],
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.w700,
                 color: Colors.white,
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Row(
               children: [
-                Text(
+                const Text(
                   'Messaging - ',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -480,12 +359,12 @@ class _AppointmentState extends State<Appointment> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xff07BD74), width: 1),
+                      border: Border.all(color: const Color(0xff07BD74), width: 1),
                       borderRadius: BorderRadius.circular(4)),
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                   child: Text(
                     status.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       color: Color(0xff07BD74),
                       fontSize: 12,
@@ -494,10 +373,10 @@ class _AppointmentState extends State<Appointment> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Row(
+            const Row(
               children: [
                 Text(
                   'Tanggal | ',
@@ -519,14 +398,14 @@ class _AppointmentState extends State<Appointment> {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           decoration: BoxDecoration(
-              color: Color.fromARGB(40, 36, 107, 253),
+              color: const Color.fromARGB(40, 36, 107, 253),
               borderRadius: BorderRadius.circular(24)),
           child: IconButton(
             onPressed: () {},
-            icon: Icon(Icons.message_rounded, color: Colors.blue),
+            icon: const Icon(Icons.message_rounded, color: Colors.blue),
           ),
         )
       ],
@@ -538,7 +417,7 @@ class _AppointmentState extends State<Appointment> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.only(right: 12),
+          margin: const EdgeInsets.only(right: 12),
           width: 80,
           height: 80,
           decoration: BoxDecoration(
@@ -549,18 +428,18 @@ class _AppointmentState extends State<Appointment> {
           children: [
             Text(
               _scheduled['mentor_name'],
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.w700,
                 color: Colors.white,
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Row(
               children: [
-                Text(
+                const Text(
                   'Messaging - ',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -570,12 +449,12 @@ class _AppointmentState extends State<Appointment> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xffF75555), width: 1),
+                      border: Border.all(color: const Color(0xffF75555), width: 1),
                       borderRadius: BorderRadius.circular(4)),
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                   child: Text(
                     status.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       color: Color(0xffF75555),
                       fontSize: 12,
@@ -584,10 +463,10 @@ class _AppointmentState extends State<Appointment> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Row(
+            const Row(
               children: [
                 Text(
                   'Tanggal | ',
@@ -609,14 +488,14 @@ class _AppointmentState extends State<Appointment> {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           decoration: BoxDecoration(
-              color: Color.fromARGB(40, 36, 107, 253),
+              color: const Color.fromARGB(40, 36, 107, 253),
               borderRadius: BorderRadius.circular(24)),
           child: IconButton(
             onPressed: () {},
-            icon: Icon(Icons.message_rounded, color: Colors.blue),
+            icon: const Icon(Icons.message_rounded, color: Colors.blue),
           ),
         )
       ],
@@ -627,7 +506,7 @@ class _AppointmentState extends State<Appointment> {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 16, bottom: 12),
+          margin: const EdgeInsets.only(top: 16, bottom: 12),
           height: 1,
           width: MediaQuery.of(context).size.width,
           color: Colors.grey,
@@ -642,7 +521,7 @@ class _AppointmentState extends State<Appointment> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(24),
                         side:
-                            BorderSide(color: AppColor.buttoncolor, width: 2))),
+                            const BorderSide(color: AppColor.buttoncolor, width: 2))),
                 onPressed: () {},
                 child: const Text(
                   'Book Again',
@@ -660,7 +539,7 @@ class _AppointmentState extends State<Appointment> {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 16, bottom: 12),
+          margin: const EdgeInsets.only(top: 16, bottom: 12),
           height: 1,
           width: MediaQuery.of(context).size.width,
           color: Colors.grey,
@@ -675,7 +554,7 @@ class _AppointmentState extends State<Appointment> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(24),
                         side:
-                            BorderSide(color: AppColor.buttoncolor, width: 2))),
+                            const BorderSide(color: AppColor.buttoncolor, width: 2))),
                 onPressed: () {},
                 child: const Text(
                   'Cancel Appointment',
