@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/home.page.dart';
+import 'package:informaticconnect_app/pages/Sign up & Sign in/login.page.dart';
 
 class Splashscreen3Page extends StatelessWidget {
   const Splashscreen3Page({Key? key});
 
   void _navigateToNextPage(BuildContext context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => const HomePage()),
+      MaterialPageRoute(builder: (context) => LoginPage()),
     );
   }
 

@@ -3,6 +3,11 @@ class AppRoute {
   static const splashscreen = '/splashscreen';
   static const profile = '/profile';
 
+  static const login = '/login';
+  static const signin = '/signin';
+  static const signup = '/signup';
+
+
   static const homepage = '/homepage';
 
 
@@ -11,6 +16,7 @@ class AppRoute {
 
   static const artikel = '/artikel';
   static const appointment = '/appointment';
+
 
 
 }
