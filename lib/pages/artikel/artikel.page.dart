@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AtikelPage extends StatelessWidget {
-  const AtikelPage({super.key});
+class ArtikelPage extends StatelessWidget {
+  const ArtikelPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: Text(
+        "test",
+        style: TextStyle(color: Colors.white),
+      ),
+    );
   }
 }
