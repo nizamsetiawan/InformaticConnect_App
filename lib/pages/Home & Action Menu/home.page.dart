@@ -14,9 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List imageList = [
-    {"id": 1, "image_path": 'assets/image/banner.png'},
-    {"id": 2, "image_path": 'assets/image/bestsellersbanner.png'},
-    {"id": 3, "image_path": 'assets/image/banner.png'}
+    {"id": 1, "image_path": 'assets/image/cardcoresoul.png'},
   ];
   final CarouselController carouselController = CarouselController();
   int currentIndex = 0;
@@ -75,9 +73,8 @@ class _HomePageState extends State<HomePage> {
                               width: 45,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                      "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg?ssl=1"),
-                                ),
+                                    image:
+                                        AssetImage('assets/image/Ellipse.png')),
                                 borderRadius: BorderRadius.circular(25),
                                 border: Border.all(
                                   color: Colors.white,
@@ -90,8 +87,11 @@ class _HomePageState extends State<HomePage> {
                               width: 10,
                             ),
                             Text(
-                              "Welcome 👋 Nizam",
-                              style: TextStyle(color: AppColor.white),
+                              "Welcome 👋\n Nizam Setiawan",
+                              style: TextStyle(
+                                  color: AppColor.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                       height: 60,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF5F5F7),
+                        color: AppColor.bgwidget,
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: TextField(

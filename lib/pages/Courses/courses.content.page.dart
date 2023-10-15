@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
+import 'package:informaticconnect_app/config/app.route.dart';
 
 class CoursesContentPage extends StatelessWidget {
   const CoursesContentPage({super.key});
@@ -12,7 +13,9 @@ class CoursesContentPage extends StatelessWidget {
         backgroundColor: AppColor.bgscaffolod,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(AppRoute.courses);
+          },
         ),
       ),
       body: ListView(
@@ -25,7 +28,7 @@ class CoursesContentPage extends StatelessWidget {
               left: 24,
               right: 24,
             ),
-            child: Image.asset("asset/courses.png"),
+            child: Image.asset("assets/image/ytplay.png"),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +46,7 @@ class CoursesContentPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum",
+                        "Mengenal Vue Js untuk pemula || sebelum belajar framework lain",
                         style: TextStyle(
                           fontSize: 24,
                           color: Colors.white,
@@ -68,7 +71,7 @@ class CoursesContentPage extends StatelessWidget {
                                 color: AppColor.bgwidget,
                                 borderRadius: BorderRadius.circular(6)),
                             child: const Text(
-                              "android",
+                              "web",
                               style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.normal,
@@ -86,7 +89,7 @@ class CoursesContentPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       const Text(
-                        "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum AndroidDec 22, 2022 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum AndroidDec 22, 2022 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum AndroidDec 22, 2022 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum AndroidDec 22,",
+                        "Framework ini juga menawarkan berbagai fitur, seperti reactive data binding, component-based architecture, dan tools untuk membangun aplikasi skalabel. Fitur utamanya adalah rendering dan komposisi elemen, sehingga bila pengguna hendak membuat aplikasi yang lebih kompleks akan membutuhkan routing, state management, template, build-tool, dan lain sebagainya.  ",
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ],
