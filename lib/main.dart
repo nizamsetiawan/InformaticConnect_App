@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme:
-            GoogleFonts.poppinsTextTheme().apply(bodyColor: Colors.black),
+            GoogleFonts.poppinsTextTheme().apply(bodyColor: Colors.white),
         scaffoldBackgroundColor: AppColor.bgscaffolod,
         primaryColor: AppColor.buttoncolor,
       ),
@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
 
         AppRoute.courses: (context) => const CoursesPage(),
         AppRoute.coursescontent: (context) => const CoursesContentPage(),
-        // AppRoute.appointment: (context) => const Appointment(),
+        AppRoute.appointment: (context) => const Appointment(),
         AppRoute.profile: (context) => const ProfilePage(),
       },
     );
