@@ -63,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         body: Center(
           child: Container(
-            padding: const EdgeInsets.fromLTRB(24, 48, 24, 24),
+            padding: const EdgeInsets.fromLTRB(24, 48, 24, 48),
             child: Column(
               children: [
                 Stack(
