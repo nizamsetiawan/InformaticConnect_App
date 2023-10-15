@@ -1,20 +1,54 @@
+// ignore_for_file: deprecated_member_use, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/edit.page.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/help.page.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/terms.page.dart';
 
-class ProfilePage extends StatelessWidget {
+import '../../config/app.route.dart';
+import '../../controllers/bottomnavbar.dart';
+
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  int _selectedIndex = 4;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    if (index == 0) {
+      Navigator.of(context).pushNamed(AppRoute.homepage);
+    } else if (index == 1) {
+      Navigator.of(context).pushNamed(AppRoute.appointment);
+    } else if (index == 2) {
+      Navigator.of(context).pushNamed(AppRoute.courses);
+    } else if (index == 3) {
+      Navigator.of(context).pushNamed(AppRoute.artikel);
+    } else if (index == 4) {
+      Navigator.of(context).pushNamed(AppRoute.profile);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color(0xff181A20),
+        backgroundColor: const Color(0xff181A20),
+        bottomNavigationBar: CustomBottomNavigation(
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
         appBar: AppBar(
-          title: Padding(
+          title: const Padding(
             padding: EdgeInsets.only(top: 24, left: 12),
             child: Text(
               'Profile',
@@ -24,12 +58,12 @@ class ProfilePage extends StatelessWidget {
                   fontWeight: FontWeight.w700),
             ),
           ),
-          backgroundColor: Color(0xff181A20),
+          backgroundColor: const Color(0xff181A20),
           elevation: 0.0,
         ),
         body: Center(
           child: Container(
-            padding: EdgeInsets.fromLTRB(24, 48, 24, 24),
+            padding: const EdgeInsets.fromLTRB(24, 48, 24, 24),
             child: Column(
               children: [
                 Stack(
@@ -37,9 +71,9 @@ class ProfilePage extends StatelessWidget {
                     Container(
                       width: 140,
                       height: 140,
-                      decoration: ShapeDecoration(
+                      decoration: const ShapeDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/photo1.JPG'),
+                            image: AssetImage('assets/image/photo1.JPG'),
                             fit: BoxFit.cover,
                           ),
                           shape: OvalBorder()),
@@ -52,7 +86,7 @@ class ProfilePage extends StatelessWidget {
                         child: Container(
                           width: 30,
                           height: 30,
-                          padding: EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: Colors.orange,
                               borderRadius: BorderRadius.circular(10)),
@@ -64,20 +98,20 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 12),
-                Text(
+                const SizedBox(height: 12),
+                const Text(
                   "Nizam Setiawan",
                   style: TextStyle(
                       fontSize: 24,
                       color: Colors.white,
                       fontWeight: FontWeight.w700),
                 ),
-                SizedBox(height: 8),
-                Text(
+                const SizedBox(height: 8),
+                const Text(
                   "Front-End Web",
                   style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -87,15 +121,15 @@ class ProfilePage extends StatelessWidget {
                   },
                   child: Container(
                     width: double.infinity,
-                    color: Color(0xff181A20),
+                    color: const Color(0xff181A20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [
                             Container(
-                              padding:
-                                  EdgeInsets.fromLTRB(5.83, 2.8, 6.2, 2.73),
+                              padding: const EdgeInsets.fromLTRB(
+                                  5.83, 2.8, 6.2, 2.73),
                               width: 28,
                               height: 28,
                               child: SvgPicture.asset(
@@ -103,9 +137,9 @@ class ProfilePage extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(width: 20),
+                            const SizedBox(width: 20),
                             Container(
-                              child: Text(
+                              child: const Text(
                                 "Edit Profile",
                                 style: TextStyle(
                                     fontSize: 16,
@@ -125,7 +159,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -135,7 +169,7 @@ class ProfilePage extends StatelessWidget {
                   },
                   child: Container(
                     width: double.infinity,
-                    color: Color(0xff181A20),
+                    color: const Color(0xff181A20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -144,15 +178,15 @@ class ProfilePage extends StatelessWidget {
                             Container(
                               width: 28,
                               height: 28,
-                              padding:
-                                  EdgeInsets.fromLTRB(4.96, 3.21, 4.99, 2.79),
+                              padding: const EdgeInsets.fromLTRB(
+                                  4.96, 3.21, 4.99, 2.79),
                               child: SvgPicture.asset(
                                 'assets/icons/terms.svg',
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(width: 20),
-                            Text(
+                            const SizedBox(width: 20),
+                            const Text(
                               "Terms & Conditions",
                               style: TextStyle(
                                   fontSize: 16,
@@ -171,7 +205,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -181,7 +215,7 @@ class ProfilePage extends StatelessWidget {
                   },
                   child: Container(
                     width: double.infinity,
-                    color: Color(0xff181A20),
+                    color: const Color(0xff181A20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -190,14 +224,14 @@ class ProfilePage extends StatelessWidget {
                             Container(
                               width: 28,
                               height: 28,
-                              padding: EdgeInsets.all(3.21),
+                              padding: const EdgeInsets.all(3.21),
                               child: SvgPicture.asset(
                                 'assets/icons/help.svg',
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(width: 20),
-                            Text(
+                            const SizedBox(width: 20),
+                            const Text(
                               "Help Center",
                               style: TextStyle(
                                   fontSize: 16,
@@ -216,7 +250,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 GestureDetector(
                   onTap: () {},
                   child: Row(
@@ -227,15 +261,15 @@ class ProfilePage extends StatelessWidget {
                           Container(
                             width: 28,
                             height: 28,
-                            padding:
-                                EdgeInsets.fromLTRB(2.64, 3.21, 2.58, 3.21),
+                            padding: const EdgeInsets.fromLTRB(
+                                2.64, 3.21, 2.58, 3.21),
                             child: SvgPicture.asset(
                               'assets/icons/logout.svg',
                               color: Colors.red,
                             ),
                           ),
-                          SizedBox(width: 20),
-                          Text(
+                          const SizedBox(width: 20),
+                          const Text(
                             "Logout",
                             style: TextStyle(
                                 fontSize: 16,

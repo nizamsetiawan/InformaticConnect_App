@@ -22,7 +22,7 @@ class SplashscreenPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              'assets/logo.png',
+              'assets/image/logo.png',
               width: 300.0,
               height: 400.0,
             ),

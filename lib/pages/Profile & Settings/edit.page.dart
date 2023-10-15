@@ -8,9 +8,9 @@ class EditProfilePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color(0xff181A20),
+        backgroundColor: const Color(0xff181A20),
         appBar: AppBar(
-          title: Padding(
+          title: const Padding(
             padding: EdgeInsets.only(top: 24, left: 12),
             child: Text(
               'Edit Profile',
@@ -20,7 +20,7 @@ class EditProfilePage extends StatelessWidget {
                   fontWeight: FontWeight.w700),
             ),
           ),
-          backgroundColor: Color(0xff181A20),
+          backgroundColor: const Color(0xff181A20),
           elevation: 0.0,
         ),
       ),

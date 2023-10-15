@@ -10,6 +10,7 @@ class ArtikelPage extends StatefulWidget {
 class _ArtikelPageState extends State<ArtikelPage> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -36,6 +37,14 @@ class _ArtikelPageState extends State<ArtikelPage> {
       )
     )
     );   
+
+    return const Scaffold(
+      body: Text(
+        "test",
+        style: TextStyle(color: Colors.white),
+      ),
+    );
+
   }
 }
 }
