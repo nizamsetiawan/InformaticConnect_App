@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 
@@ -13,6 +14,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List<String> categories = [
+    'Back End',
+    'Front End',
+    'Mobile',
+  ];
+  List<String> selectedCategories = [
+
+  ];
   List imageList = [
     {"id": 1, "image_path": 'assets/image/cardcoresoul.png'},
   ];
@@ -168,8 +177,42 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                ],
+                Container (
+              padding: EdgeInsets.all(8.0),
+              margin: EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: categories
+                  .map(
+                    (category) => FilterChip(
+                      label: Text(category), onSelected: (selected){
+
+                }),
+                )
+                .toList(),
               ),
+
+            ),
+            Expanded(child: ListView.builder(
+              itemCount: 10, itemBuilder: (context, index){
+                return Card(
+                  elevation: 8.0,
+                  margin: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: const BoxDecoration(color: AppColor.buttoncolor),
+                    child: const ListTile(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      title: Text('name', style: TextStyle(color: Colors.white, fontWeight: 
+                      FontWeight.bold),),
+                      subtitle: Text('name', style: TextStyle(color: Colors.white, 
+                      fontStyle: FontStyle.italic),),
+                    ),
+                  ),
+                );
+            }),
+            )
+            ],
+               ),
             ],
           ),
         ],

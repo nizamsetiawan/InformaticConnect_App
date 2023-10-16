@@ -30,10 +30,10 @@ ArtikelData(
       "Hallo, teman-teman! Jumpa lagi nih. Pada kesempatan kali ini saya akan berbagi pengalaman seputar ngoding website.",
       "9 Desember 2020",
       "https://www.dicoding.com/blog/wp-content/uploads/2020/05/BLOG_Blog_9_Desember_-_Contoh_Coding_HTML_Website_Dalam_15_Menit_Socmed-1024x538.png"),
-    ArtikelData(
-      "Pentingnya Hosting untuk Website Sistem Informasi",
-      "Budi Pekerti",
-      "Pentingnya Hosting Untuk Website Sistem Informasi - apa itu web hosting?",
-      "https://it.rsudsekayu.mubakab.go.id/ckfinder/userfiles/files/teknologi/1/internet.jpeg"),
+    // ArtikelData(
+    //   "Pentingnya Hosting untuk Website Sistem Informasi",
+    //   "Budi Pekerti",
+    //   "Pentingnya Hosting Untuk Website Sistem Informasi - apa itu web hosting?",
+    //   "https://it.rsudsekayu.mubakab.go.id/ckfinder/userfiles/files/teknologi/1/internet.jpeg"),
   ];
 }

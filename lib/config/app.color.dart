@@ -7,5 +7,5 @@ class AppColor {
   static const dividercolor = Color(0xFF35383F);
   static const white = Colors.white;
 
-  static var bgwidget;
+  // static var bgwidget;
 }
