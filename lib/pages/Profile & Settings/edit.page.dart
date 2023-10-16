@@ -1,10 +1,34 @@
 import 'package:flutter/material.dart';
 
-class EditProfilePage extends StatelessWidget {
-  const EditProfilePage({super.key});
+class EditProfile extends StatefulWidget {
+  const EditProfile({super.key});
+
+  @override
+  State<EditProfile> createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
+  DateTime? selectedDate;
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate ?? DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+      });
+  }
 
   @override
   Widget build(BuildContext context) {
+    String dateText = selectedDate != null
+        ? "${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}"
+        : 'Select a date';
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -16,7 +40,9 @@ class EditProfilePage extends StatelessWidget {
                 children: [
                   IconButton(
                     icon: Icon(Icons.arrow_back),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                   ),
                   SizedBox(
                     width: 16,
@@ -71,17 +97,28 @@ class EditProfilePage extends StatelessWidget {
                       SizedBox(
                         height: 24,
                       ),
-                      TextField(
+                      TextFormField(
+                        readOnly: true,
+                        onTap: () => _selectDate(context),
                         decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Color(0xFF1F222A),
-                            hintText: '12/27/1994',
-                            hintStyle: TextStyle(color: Colors.white),
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 20),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(16),
-                                borderSide: BorderSide.none)),
+                          filled: true,
+                          fillColor: Color(0xFF1F222A),
+                          hintText: dateText,
+                          hintStyle: TextStyle(color: Colors.white),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16),
+                            borderSide: BorderSide.none,
+                          ),
+                          suffixIcon: InkWell(
+                            onTap: () => _selectDate(context),
+                            child: Icon(
+                              Icons.calendar_today,
+                              color: Colors.white,
+                              size: 15,
+                            ),
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: 24,
@@ -101,17 +138,38 @@ class EditProfilePage extends StatelessWidget {
                       SizedBox(
                         height: 24,
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Color(0xFF1F222A),
-                            hintText: 'Male',
+                      Container(
+                        padding: EdgeInsets.only(left: 20),
+                        decoration: BoxDecoration(
+                          color: Color(0xff1F222A),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: DropdownButtonFormField<String>(
+                          dropdownColor: Color(0xff1F222A),
+                          icon: Container(
+                            width: 0,
+                          ),
+                          items: ['Male', 'Female', 'Prefer Not To Say']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(
+                                value,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String? value) {},
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Select an option',
                             hintStyle: TextStyle(color: Colors.white),
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 20),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(16),
-                                borderSide: BorderSide.none)),
+                            suffixIcon: Icon(
+                              Icons.arrow_drop_down,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
