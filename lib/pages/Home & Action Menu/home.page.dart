@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
+import 'package:informaticconnect_app/models/mentor.dart';
 
 import '../../config/app.route.dart';
 import '../../controllers/bottomnavbar.dart';
@@ -51,6 +52,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final filterMentors = mentorList.where((mentor) {
+      return selectedCategories.isEmpty || 
+      selectedCategories.contains(mentor.category);
+    }).toList();
     return Scaffold(
       bottomNavigationBar: CustomBottomNavigation(
         currentIndex: _selectedIndex,
@@ -185,8 +190,15 @@ class _HomePageState extends State<HomePage> {
                 children: categories
                   .map(
                     (category) => FilterChip(
+                      selected: selectedCategories.contains(category),
                       label: Text(category), onSelected: (selected){
-
+                        setState(() {
+                          if (selected){
+                          selectedCategories.add(category);
+                        }else{
+                          selectedCategories.remove(category);
+                        }
+                        });
                 }),
                 )
                 .toList(),
@@ -194,18 +206,26 @@ class _HomePageState extends State<HomePage> {
 
             ),
             Expanded(child: ListView.builder(
-              itemCount: 10, itemBuilder: (context, index){
+              itemCount: filterMentors.length, 
+              itemBuilder: (context, index){
+                final mentor = filterMentors[index];
                 return Card(
                   elevation: 8.0,
                   margin: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: const BoxDecoration(color: AppColor.buttoncolor),
-                    child: const ListTile(
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      title: Text('name', style: TextStyle(color: Colors.white, fontWeight: 
-                      FontWeight.bold),),
-                      subtitle: Text('name', style: TextStyle(color: Colors.white, 
-                      fontStyle: FontStyle.italic),),
+                    child:  ListTile(
+                      contentPadding: 
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      title: Text(
+                        mentor.name, 
+                        style: const TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                      subtitle:  Text(
+                        mentor.category, 
+                        style: const TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
+                        ),
                     ),
                   ),
                 );
