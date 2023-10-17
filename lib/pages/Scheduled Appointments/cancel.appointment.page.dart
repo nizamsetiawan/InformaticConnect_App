@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
+import 'package:informaticconnect_app/config/app.route.dart';
 
 class CancelPage extends StatefulWidget {
   const CancelPage({super.key});
@@ -34,7 +35,7 @@ class _CancelPageState extends State<CancelPage> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(24),
-        child: Expanded(
+        child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -125,14 +126,15 @@ class _CancelPageState extends State<CancelPage> {
                         ),
                       ),
                     ),
-                    Expanded(
+                    Container(
+                      width: MediaQuery.of(context).size.width,
                       child: FilledButton(
                         style: FilledButton.styleFrom(
                           backgroundColor: AppColor.buttoncolor,
                           padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16)
                         ),
                         onPressed: () {
-                          //
+                          cancelAllert();
                         }, 
                         child: Text(
                           'Submit',
@@ -149,6 +151,67 @@ class _CancelPageState extends State<CancelPage> {
           ),
         ),
       ),
+    );
+  }
+
+  cancelAllert() {
+    showDialog(
+      barrierDismissible: false,
+      context: context, 
+      builder: (context) {
+        return AlertDialog(
+          content: Container(
+            padding: EdgeInsets.all(32),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    child: Image.asset('assets/image/suksesbatal.png'),
+                    padding: EdgeInsets.only(bottom: 32),
+                  ),
+                  Text(
+                    'Cancel Appointment Success!',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 24,
+                      color: AppColor.buttoncolor,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 16,),
+                  Text(
+                    'We are very sad that you have canceled your appointment. We will always improve our service to satisfy you in the next appointment.',
+                    style: TextStyle(
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 32),
+                    width: MediaQuery.of(context).size.width,
+                      child: FilledButton(
+                        style: FilledButton.styleFrom(
+                          backgroundColor: AppColor.buttoncolor,
+                          padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16)
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(AppRoute.homepage);
+                        }, 
+                        child: Text(
+                          'Submit',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        )
+                      )
+                  )
+                ],
+              ),
+            ),
+          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48)),
+          backgroundColor: AppColor.bgscaffolod,
+        );
+      }
     );
   }
 }
