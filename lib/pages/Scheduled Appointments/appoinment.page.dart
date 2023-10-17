@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 
 import '../../config/app.route.dart';
@@ -39,42 +40,44 @@ class _AppointmentState extends State<Appointment> {
   List<dynamic> schedules = [
     {
       "mentor_name": "Nizam Setiawan",
-      "mentor_profile": "asset_image",
+      "mentor_profile": "assets/image/Nizampp.jpg",
+      "tanggal": "Today",
+      "jam": "16.00 PM",
       "status": FilterStatus.Upcoming,
     },
     {
       "mentor_name": "Nizam Setiawan",
-      "mentor_profile": "asset_image",
+      "mentor_profile": "assets/image/Nizampp.jpg",
+      "tanggal": "Nov 22, 2022",
+      "jam": "09.00 AM",
       "status": FilterStatus.Completed,
     },
     {
       "mentor_name": "Nizam Setiawan",
-      "mentor_profile": "asset_image",
+      "mentor_profile": "assets/image/Nizampp.jpg",
+      "tanggal": "Nov 23, 2022",
+      "jam": "08.00 AM",
       "status": FilterStatus.Completed,
     },
     {
       "mentor_name": "Nizam Setiawan",
-      "mentor_profile": "asset_image",
+      "mentor_profile": "assets/image/Nizampp.jpg",
+      "tanggal": "Nov 24, 2022",
+      "jam": "11.00 AM",
       "status": FilterStatus.Completed,
     },
     {
       "mentor_name": "Nizam Setiawan",
-      "mentor_profile": "asset_image",
+      "mentor_profile": "assets/image/Nizampp.jpg",
+      "tanggal": "Nov 25, 2022",
+      "jam": "10.00 AM",
       "status": FilterStatus.Completed,
     },
     {
       "mentor_name": "Nizam Setiawan",
-      "mentor_profile": "asset_image",
-      "status": FilterStatus.Completed,
-    },
-    {
-      "mentor_name": "Nizam Setiawan",
-      "mentor_profile": "asset_image",
-      "status": FilterStatus.Completed,
-    },
-    {
-      "mentor_name": "Nizam Setiawan",
-      "mentor_profile": "asset_image",
+      "mentor_profile": "assets/image/Nizampp.jpg",
+      "tanggal": "Nov 20, 2022",
+      "jam": "10.00 AM",
       "status": FilterStatus.Cancelled,
     },
   ];
@@ -202,13 +205,7 @@ class _AppointmentState extends State<Appointment> {
                       color: const Color(0xff1F222A),
                       child: Container(
                         padding: const EdgeInsets.all(12),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            upcomingAppointmentCard(_scheduled),
-                            upcomingButtonCard(context),
-                          ],
-                        ),
+                        child: upcomingAppointmentCard(_scheduled, context),
                       ),
                     );
                   } else if (status == FilterStatus.Completed) {
@@ -221,13 +218,7 @@ class _AppointmentState extends State<Appointment> {
                       color: const Color(0xff1F222A),
                       child: Container(
                         padding: const EdgeInsets.all(12),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            completedAppointmentCard(_scheduled),
-                            completedButtonCard(context),
-                          ],
-                        ),
+                        child: completedAppointmentCard(_scheduled, context),
                       ),
                     );
                   } else if (status == FilterStatus.Cancelled) {
@@ -260,185 +251,272 @@ class _AppointmentState extends State<Appointment> {
     );
   }
 
-  Row upcomingAppointmentCard(_scheduled) {
-    return Row(
+  Column upcomingAppointmentCard(_scheduled, BuildContext context) {
+    return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Container(
-          margin: const EdgeInsets.only(right: 12),
-          width: 80,
-          height: 80,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12), color: Colors.blueGrey),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
-              _scheduled['mentor_name'],
-              style: const TextStyle(
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-                fontSize: 16,
+            Container(
+              margin: const EdgeInsets.only(right: 12),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  _scheduled['mentor_profile'],
+                  height: 80,
+                  width: 80,
+                ),
               ),
             ),
-            const SizedBox(
-              height: 5,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  _scheduled['mentor_name'],
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: [
+                    const Text(
+                      'Messaging - ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(color: AppColor.buttoncolor, width: 1),
+                          borderRadius: BorderRadius.circular(4)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 2),
+                      child: Text(
+                        status.name,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.buttoncolor,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      _scheduled['tanggal'] + ' | ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      _scheduled['jam'],
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const Spacer(),
+            Container(
+              decoration: BoxDecoration(
+                  color: Color.fromARGB(40, 50, 253, 36),
+                  borderRadius: BorderRadius.circular(24)),
+              child: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  'assets/icons/whatsapp.svg',
+                ),
+              ),
+            )
+          ],
+        ),
+        Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 16, bottom: 12),
+              height: 1,
+              width: MediaQuery.of(context).size.width,
+              color: Colors.grey,
             ),
             Row(
               children: [
-                const Text(
-                  'Messaging - ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: AppColor.buttoncolor, width: 1),
-                      borderRadius: BorderRadius.circular(4)),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                  child: Text(
-                    status.name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: AppColor.buttoncolor,
-                      fontSize: 12,
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.bgwidget,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24),
+                            side: const BorderSide(
+                                color: AppColor.buttoncolor, width: 2))),
+                    onPressed: () {
+                      cancelAppointment(context);
+                    },
+                    child: const Text(
+                      'Cancel Appointment',
+                      style: TextStyle(color: AppColor.buttoncolor),
                     ),
                   ),
                 ),
               ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Row(
-              children: [
-                Text(
-                  'Tanggal | ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-                Text(
-                  'Jam',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
+            )
           ],
         ),
-        const Spacer(),
-        Container(
-          decoration: BoxDecoration(
-              color: const Color.fromARGB(40, 36, 107, 253),
-              borderRadius: BorderRadius.circular(24)),
-          child: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.message_rounded, color: Colors.blue),
-          ),
-        )
       ],
     );
   }
 
-  Row completedAppointmentCard(_scheduled) {
-    return Row(
+  Column completedAppointmentCard(_scheduled, BuildContext context) {
+    return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Container(
-          margin: const EdgeInsets.only(right: 12),
-          width: 80,
-          height: 80,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12), color: Colors.blueGrey),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
-              _scheduled['mentor_name'],
-              style: const TextStyle(
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-                fontSize: 16,
+            Container(
+              margin: const EdgeInsets.only(right: 12),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  _scheduled['mentor_profile'],
+                  height: 80,
+                  width: 80,
+                ),
               ),
             ),
-            const SizedBox(
-              height: 5,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  _scheduled['mentor_name'],
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: [
+                    const Text(
+                      'Messaging - ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: const Color(0xff07BD74), width: 1),
+                          borderRadius: BorderRadius.circular(4)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 2),
+                      child: Text(
+                        status.name,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xff07BD74),
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      _scheduled['tanggal'] + ' | ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      _scheduled['jam'],
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const Spacer(),
+            Container(
+              decoration: BoxDecoration(
+                  color: Color.fromARGB(40, 50, 253, 36),
+                  borderRadius: BorderRadius.circular(24)),
+              child: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  'assets/icons/whatsapp.svg',
+                ),
+              ),
+            )
+          ],
+        ),
+        Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 16, bottom: 12),
+              height: 1,
+              width: MediaQuery.of(context).size.width,
+              color: Colors.grey,
             ),
             Row(
               children: [
-                const Text(
-                  'Messaging - ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      border:
-                          Border.all(color: const Color(0xff07BD74), width: 1),
-                      borderRadius: BorderRadius.circular(4)),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                  child: Text(
-                    status.name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff07BD74),
-                      fontSize: 12,
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.bgwidget,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24),
+                            side: const BorderSide(
+                                color: AppColor.buttoncolor, width: 2))),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(AppRoute.homepage);
+                    },
+                    child: const Text(
+                      'Book Again',
+                      style: TextStyle(color: AppColor.buttoncolor),
                     ),
                   ),
                 ),
               ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Row(
-              children: [
-                Text(
-                  'Tanggal | ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-                Text(
-                  'Jam',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
+            )
           ],
         ),
-        const Spacer(),
-        Container(
-          decoration: BoxDecoration(
-              color: const Color.fromARGB(40, 36, 107, 253),
-              borderRadius: BorderRadius.circular(24)),
-          child: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.message_rounded, color: Colors.blue),
-          ),
-        )
       ],
     );
   }
@@ -449,10 +527,14 @@ class _AppointmentState extends State<Appointment> {
       children: [
         Container(
           margin: const EdgeInsets.only(right: 12),
-          width: 80,
-          height: 80,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12), color: Colors.blueGrey),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(
+              _scheduled['mentor_profile'],
+              height: 80,
+              width: 80,
+            ),
+          ),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -499,10 +581,10 @@ class _AppointmentState extends State<Appointment> {
             const SizedBox(
               height: 5,
             ),
-            const Row(
+            Row(
               children: [
                 Text(
-                  'Tanggal | ',
+                  _scheduled['tanggal'] + ' | ',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
@@ -510,7 +592,7 @@ class _AppointmentState extends State<Appointment> {
                   ),
                 ),
                 Text(
-                  'Jam',
+                  _scheduled['jam'],
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
@@ -524,80 +606,33 @@ class _AppointmentState extends State<Appointment> {
         const Spacer(),
         Container(
           decoration: BoxDecoration(
-              color: const Color.fromARGB(40, 36, 107, 253),
+              color: Color.fromARGB(40, 50, 253, 36),
               borderRadius: BorderRadius.circular(24)),
           child: IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.message_rounded, color: Colors.blue),
+            icon: SvgPicture.asset(
+              'assets/icons/whatsapp.svg',
+            ),
           ),
         )
       ],
     );
   }
 
-  Column completedButtonCard(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 16, bottom: 12),
-          height: 1,
-          width: MediaQuery.of(context).size.width,
-          color: Colors.grey,
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColor.bgwidget,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                        side: const BorderSide(
-                            color: AppColor.buttoncolor, width: 2))),
-                onPressed: () {},
-                child: const Text(
-                  'Book Again',
-                  style: TextStyle(color: AppColor.buttoncolor),
-                ),
+  Future cancelAppointment(BuildContext context) {
+    return (showModalBottomSheet(
+        context: context,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(48))),
+        backgroundColor: AppColor.bgscaffolod,
+        barrierColor: Color(0xff09101D).withOpacity(0.7),
+        builder: (context) => Container(
+              // height: 200,
+              padding: EdgeInsets.only(top: 8, left: 24, right: 24, bottom: 48),
+              child: Column(
+                children: [
+                ],
               ),
-            ),
-          ],
-        )
-      ],
-    );
-  }
-
-  Column upcomingButtonCard(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 16, bottom: 12),
-          height: 1,
-          width: MediaQuery.of(context).size.width,
-          color: Colors.grey,
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColor.bgwidget,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                        side: const BorderSide(
-                            color: AppColor.buttoncolor, width: 2))),
-                onPressed: () {},
-                child: const Text(
-                  'Cancel Appointment',
-                  style: TextStyle(color: AppColor.buttoncolor),
-                ),
-              ),
-            ),
-          ],
-        )
-      ],
-    );
+            )
+    ));
   }
 }
