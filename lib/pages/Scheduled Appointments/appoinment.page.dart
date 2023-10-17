@@ -288,8 +288,6 @@ class _AppointmentState extends State<Appointment> {
                     const Text(
                       'Messaging - ',
                       style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
                         fontSize: 12,
                       ),
                     ),
@@ -319,16 +317,12 @@ class _AppointmentState extends State<Appointment> {
                     Text(
                       _scheduled['tanggal'] + ' | ',
                       style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
                         fontSize: 12,
                       ),
                     ),
                     Text(
                       _scheduled['jam'],
                       style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
                         fontSize: 12,
                       ),
                     ),
@@ -339,7 +333,7 @@ class _AppointmentState extends State<Appointment> {
             const Spacer(),
             Container(
               decoration: BoxDecoration(
-                  color: Color.fromARGB(40, 50, 253, 36),
+                  color: AppColor.dividercolor,
                   borderRadius: BorderRadius.circular(24)),
               child: IconButton(
                 onPressed: () {},
@@ -356,7 +350,7 @@ class _AppointmentState extends State<Appointment> {
               margin: const EdgeInsets.only(top: 16, bottom: 12),
               height: 1,
               width: MediaQuery.of(context).size.width,
-              color: Colors.grey,
+              color: AppColor.dividercolor,
             ),
             Row(
               children: [
@@ -411,7 +405,6 @@ class _AppointmentState extends State<Appointment> {
                   _scheduled['mentor_name'],
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
-                    color: Colors.white,
                     fontSize: 16,
                   ),
                 ),
@@ -423,8 +416,6 @@ class _AppointmentState extends State<Appointment> {
                     const Text(
                       'Messaging - ',
                       style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
                         fontSize: 12,
                       ),
                     ),
@@ -454,16 +445,12 @@ class _AppointmentState extends State<Appointment> {
                     Text(
                       _scheduled['tanggal'] + ' | ',
                       style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
                         fontSize: 12,
                       ),
                     ),
                     Text(
                       _scheduled['jam'],
                       style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
                         fontSize: 12,
                       ),
                     ),
@@ -474,7 +461,7 @@ class _AppointmentState extends State<Appointment> {
             const Spacer(),
             Container(
               decoration: BoxDecoration(
-                  color: Color.fromARGB(40, 50, 253, 36),
+                  color: AppColor.dividercolor,
                   borderRadius: BorderRadius.circular(24)),
               child: IconButton(
                 onPressed: () {},
@@ -491,7 +478,7 @@ class _AppointmentState extends State<Appointment> {
               margin: const EdgeInsets.only(top: 16, bottom: 12),
               height: 1,
               width: MediaQuery.of(context).size.width,
-              color: Colors.grey,
+              color: AppColor.dividercolor,
             ),
             Row(
               children: [
@@ -543,7 +530,6 @@ class _AppointmentState extends State<Appointment> {
               _scheduled['mentor_name'],
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
-                color: Colors.white,
                 fontSize: 16,
               ),
             ),
@@ -555,8 +541,6 @@ class _AppointmentState extends State<Appointment> {
                 const Text(
                   'Messaging - ',
                   style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
                     fontSize: 12,
                   ),
                 ),
@@ -586,16 +570,12 @@ class _AppointmentState extends State<Appointment> {
                 Text(
                   _scheduled['tanggal'] + ' | ',
                   style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
                     fontSize: 12,
                   ),
                 ),
                 Text(
                   _scheduled['jam'],
                   style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
                     fontSize: 12,
                   ),
                 ),
@@ -606,7 +586,7 @@ class _AppointmentState extends State<Appointment> {
         const Spacer(),
         Container(
           decoration: BoxDecoration(
-              color: Color.fromARGB(40, 50, 253, 36),
+              color: AppColor.dividercolor,
               borderRadius: BorderRadius.circular(24)),
           child: IconButton(
             onPressed: () {},
@@ -622,17 +602,98 @@ class _AppointmentState extends State<Appointment> {
   Future cancelAppointment(BuildContext context) {
     return (showModalBottomSheet(
         context: context,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(48))),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(48))),
         backgroundColor: AppColor.bgscaffolod,
         barrierColor: Color(0xff09101D).withOpacity(0.7),
         builder: (context) => Container(
+          height: 440,
               // height: 200,
               padding: EdgeInsets.only(top: 8, left: 24, right: 24, bottom: 48),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Container(
+                    width: 38,
+                    height: 3,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24),
+                      color: AppColor.dividercolor,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 24),
+                    child: Text(
+                      'Cancel Appointment',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xffF75555),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 1,
+                    width: MediaQuery.of(context).size.width,
+                    color: AppColor.dividercolor,
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 24),
+                    child: Text(
+                      'Are you sure you want to cancel your appointment? \n\nOnly 50% of the funds will be returned to your account.',
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Container(
+                    height: 1,
+                    width: MediaQuery.of(context).size.width,
+                    color: AppColor.dividercolor,
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 24),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: FilledButton(
+                            style: FilledButton.styleFrom(
+                              backgroundColor: AppColor.dividercolor,
+                              padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16)
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            }, 
+                            child: Text(
+                              'Back',
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            )
+                          )
+                        ),
+                        SizedBox(width: 12,),
+                        Expanded(
+                          child: FilledButton(
+                            style: FilledButton.styleFrom(
+                              backgroundColor: AppColor.buttoncolor,
+                              padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16)
+                            ),
+                            onPressed: () {}, 
+                            child: Text(
+                              'Yes, Cancel',
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            )
+                          )
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
-            )
-    ));
+            )));
   }
 }
