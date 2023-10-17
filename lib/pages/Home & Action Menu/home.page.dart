@@ -3,7 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 import 'package:informaticconnect_app/models/mentor.dart';
-
+import 'package:english_words/english_words.dart';
+import 'package:informaticconnect_app/provider/favorite_prov.dart';
+import 'package:provider/provider.dart';
 import '../../config/app.route.dart';
 import '../../controllers/bottomnavbar.dart';
 
@@ -52,6 +54,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final words = nouns.take(10).toList();
+    final provider = Provider.of<FavoriteProvider>(context);
     final filterMentors = mentorList.where((mentor) {
       return selectedCategories.isEmpty || 
       selectedCategories.contains(mentor.category);
@@ -233,6 +237,24 @@ class _HomePageState extends State<HomePage> {
             )
             ],
                ),
+            Expanded(child: ListView.builder(
+              itemCount: words.length,
+        itemBuilder: (context, index){
+          final word = words[index];
+          return ListTile(
+          title: Text(word),
+          trailing: IconButton(
+            onPressed: () {
+              provider.toggleFavorite(word);
+            },
+            icon: provider.isExist(word)
+            ? const Icon(Icons.favorite, color: Colors.red)
+            : const Icon(Icons.favorite_border),
+          ),
+          );
+        },
+            ),
+            ),
             ],
           ),
         ],

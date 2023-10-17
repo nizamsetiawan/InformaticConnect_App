@@ -19,6 +19,8 @@ import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/signup.pag
 import 'package:informaticconnect_app/pages/Scheduled%20Appointments/appoinment.page.dart';
 
 import 'package:informaticconnect_app/pages/onboarding/splashscreen.page.dart';
+import 'package:informaticconnect_app/provider/favorite_prov.dart';
+import 'package:provider/provider.dart';
 import 'config/app.color.dart';
 import 'config/app.route.dart';
 import 'package:informaticconnect_app/pages/Home & Action Menu/home.page.dart';
@@ -31,8 +33,13 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
+  Widget build(BuildContext context) { 
+    // return MultiProvider(providers: [
+    //   ChangeNotifierProvider(create: (_) => FavoriteItemProvider()),
+    // ],
+    return ChangeNotifierProvider(
+      create: (context) => FavoriteProvider(),
+      child: GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme:
@@ -68,6 +75,7 @@ class MyApp extends StatelessWidget {
         AppRoute.appointment: (context) => const Appointment(),
         AppRoute.profile: (context) => const ProfilePage(),
       },
+      ),
     );
   }
 }
