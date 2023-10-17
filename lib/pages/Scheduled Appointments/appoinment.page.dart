@@ -103,7 +103,6 @@ class _AppointmentState extends State<Appointment> {
               child: const Text(
                 'My Appointment',
                 style: TextStyle(
-                  color: Colors.white,
                   fontWeight: FontWeight.w700,
                   fontSize: 24,
                 ),
@@ -276,7 +275,6 @@ class _AppointmentState extends State<Appointment> {
                   _scheduled['mentor_name'],
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
-                    color: Colors.white,
                     fontSize: 16,
                   ),
                 ),
@@ -680,7 +678,9 @@ class _AppointmentState extends State<Appointment> {
                               backgroundColor: AppColor.buttoncolor,
                               padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16)
                             ),
-                            onPressed: () {}, 
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(AppRoute.cancel);
+                            }, 
                             child: Text(
                               'Yes, Cancel',
                               style: TextStyle(

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.content.page.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.page.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
+import 'package:informaticconnect_app/pages/Scheduled%20Appointments/cancel.appointment.page.dart';
 
 // import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
 // import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
             GoogleFonts.poppinsTextTheme().apply(bodyColor: Colors.white),
         scaffoldBackgroundColor: AppColor.bgscaffolod,
         primaryColor: AppColor.buttoncolor,
+        unselectedWidgetColor: AppColor.buttoncolor,
       ),
       routes: {
         '/': (context) {
@@ -67,6 +69,7 @@ class MyApp extends StatelessWidget {
         AppRoute.coursescontent: (context) => const CoursesContentPage(),
         AppRoute.appointment: (context) => const Appointment(),
         AppRoute.profile: (context) => const ProfilePage(),
+        AppRoute.cancel: (context) => const CancelPage(),
       },
     );
   }
