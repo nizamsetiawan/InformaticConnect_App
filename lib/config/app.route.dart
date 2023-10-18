@@ -16,6 +16,7 @@ class AppRoute {
 
   static const artikel = '/artikel';
   static const appointment = '/appointment';
+  static const cancel = '/cancel';
 
 
 
