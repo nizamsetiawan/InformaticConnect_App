@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.content.page.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.page.dart';
+import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/main_fitur.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
 
 // import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
@@ -52,9 +53,9 @@ class MyApp extends StatelessWidget {
           return FutureBuilder(
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
-                return const SplashscreenPage(); // halaman otomatis awal jika aplikasi diluncurkan
+                return  HomePage(); // halaman otomatis awal jika aplikasi diluncurkan
               } else {
-                return const SplashscreenPage();
+                return  HomePage();
               }
             },
             future: null,

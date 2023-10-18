@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final words = nouns.take(4).toList();
+    final words = nouns.take(10).toList();
     final provider = Provider.of<FavoriteProvider>(context);
     final filterMentors = mentorList.where((mentor) {
       return selectedCategories.isEmpty || 
@@ -187,6 +187,8 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 Container (
+              padding: EdgeInsets.all(8.0),
+              margin: EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: categories
@@ -208,9 +210,12 @@ class _HomePageState extends State<HomePage> {
 
             ),
             Expanded(child: ListView.builder(
+              itemCount: filterMentors.length, 
               itemBuilder: (context, index){
                 final mentor = filterMentors[index];
                 return Card(
+                  elevation: 8.0,
+                  margin: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: const BoxDecoration(color: AppColor.buttoncolor),
                     child:  ListTile(
@@ -229,7 +234,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 );
             }),
-            ),
+            )
+            ],
+               ),
             Expanded(child: ListView.builder(
               itemCount: words.length,
         itemBuilder: (context, index){
@@ -248,11 +255,8 @@ class _HomePageState extends State<HomePage> {
         },
             ),
             ),
-        
             ],
           ),
-        ],
-      ),
         ],
       ),
     );
