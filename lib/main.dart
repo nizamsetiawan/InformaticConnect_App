@@ -13,6 +13,7 @@ import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.
 import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/login.page.dart';
 import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/signin.page.dart';
 import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/signup.page.dart';
+import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/forgetpassword.page.dart';
 
 // import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
 
@@ -57,8 +58,9 @@ class MyApp extends StatelessWidget {
         AppRoute.splashscreen: (context) => const SplashscreenPage(),
         AppRoute.login: (context) => const LoginPage(),
         AppRoute.signin: (context) => const SigninPage(),
-        AppRoute.signup: (context) =>
-            const SignupPage(), //identifikasi sini tiap halaman
+        AppRoute.signup: (context) => const SignupPage(),
+        AppRoute.forgetpassword: (context) =>
+            const ForgetPasswordPage(), //identifikasi sini tiap halaman
 
         AppRoute.homepage: (context) =>
             const HomePage(), //identifikasi sini tiap halaman

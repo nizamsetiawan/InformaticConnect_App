@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 import 'package:informaticconnect_app/config/app.route.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class ForgetPasswordPage extends StatelessWidget {
+  const ForgetPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,71 +18,95 @@ class LoginPage extends StatelessWidget {
         child: Container(
           color: AppColor.bgscaffolod,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(height: 50),
               Center(
-                child: Image.asset('assets/image/login1.png',
-                    height: 275, width: 275),
+                child: Image.asset(
+                  'assets/image/logo2.png',
+                  height: 200,
+                ),
               ),
-              const SizedBox(height: 20),
               const Text(
-                "Let's you in",
+                'Forget Password',
                 style: TextStyle(
-                    fontSize: 36,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
               const SizedBox(height: 20),
-              Container(
-                height: 45,
+              SizedBox(
                 width: 350,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 44, 44, 43),
-                    borderRadius: BorderRadius.circular(15)),
-                child: TextButton(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/image/login2.png',
-                        height: 18,
-                        width: 18,
-                      ),
-                      const SizedBox(width: 10),
-                      const Text(
-                        'Continue with Google',
-                        style: TextStyle(color: AppColor.white),
-                      ),
-                    ],
+                child: TextFormField(
+                  style: const TextStyle(color: AppColor.white),
+                  decoration: InputDecoration(
+                    fillColor: const Color.fromARGB(255, 49, 49, 49),
+                    filled: true,
+                    labelText: 'Email',
+                    labelStyle: const TextStyle(color: AppColor.white),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(color: Colors.white),
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.email,
+                      color: Colors.white,
+                      size: 18,
+                    ),
                   ),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(AppRoute.signin);
-                  },
                 ),
               ),
               const SizedBox(height: 25),
-              const SizedBox(
+              Container(
                 height: 50,
+                width: 350,
+                decoration: BoxDecoration(
+                    color: AppColor.buttoncolor,
+                    borderRadius: BorderRadius.circular(30)),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(AppRoute.homepage);
+                  },
+                  child: const Text(
+                    'Send',
+                    style: TextStyle(
+                        color: AppColor.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(AppRoute.signin);
+                  },
+                  child: const Text(
+                    'Sign in with password',
+                    style: TextStyle(color: AppColor.buttoncolor),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 40,
                 width: 350,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                         height: 1,
-                        width: 150,
+                        width: 100,
                         child: DecoratedBox(
                             decoration: BoxDecoration(
                                 color: Color.fromARGB(255, 44, 44, 43)))),
                     SizedBox(width: 15),
                     Text(
-                      'or',
+                      'or continue with',
                       style: TextStyle(color: AppColor.white),
                     ),
                     SizedBox(width: 15),
                     SizedBox(
                       height: 1,
-                      width: 150,
+                      width: 100,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           color: Color.fromARGB(255, 44, 44, 43),
@@ -92,33 +116,32 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 20),
               Container(
                 height: 50,
-                width: 350,
+                width: 70,
                 decoration: BoxDecoration(
-                    color: AppColor.buttoncolor,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color.fromARGB(255, 2, 192, 255)
-                            .withOpacity(0.25),
-                        blurRadius: 24,
-                        offset: const Offset(4, 8),
-                      )
-                    ]),
+                    color: const Color.fromARGB(255, 44, 44, 43),
+                    borderRadius: BorderRadius.circular(15)),
                 child: TextButton(
-                  child: const Text(
-                    'Sign in with password',
-                    style: TextStyle(
-                        color: AppColor.white, fontWeight: FontWeight.bold),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Image.asset(
+                          'assets/image/login2.png',
+                          height: 20,
+                          width: 20,
+                        ),
+                      ),
+                    ],
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushNamed(AppRoute.signin);
+                    Navigator.of(context).pushNamed(AppRoute.homepage);
                   },
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
