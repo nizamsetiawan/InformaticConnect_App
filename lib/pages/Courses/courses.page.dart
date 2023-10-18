@@ -16,7 +16,7 @@ class _CoursesPageState extends State<CoursesPage> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _selectedIndex = 2;
     });
 
     if (index == 0) {

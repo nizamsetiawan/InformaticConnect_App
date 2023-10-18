@@ -70,6 +70,7 @@ class MyApp extends StatelessWidget {
         AppRoute.appointment: (context) => const Appointment(),
         AppRoute.profile: (context) => const ProfilePage(),
         AppRoute.cancel: (context) => const CancelPage(),
+        AppRoute.artikel: (p0) => const CoursesPage()
       },
     );
   }

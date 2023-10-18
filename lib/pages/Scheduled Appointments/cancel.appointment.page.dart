@@ -3,7 +3,7 @@ import 'package:informaticconnect_app/config/app.color.dart';
 import 'package:informaticconnect_app/config/app.route.dart';
 
 class CancelPage extends StatefulWidget {
-  const CancelPage({super.key});
+  const CancelPage({Key? key}) : super(key: key);
 
   @override
   State<CancelPage> createState() => _CancelPageState();
@@ -46,7 +46,9 @@ class _CancelPageState extends State<CancelPage> {
                     BackButton(
                       color: Colors.white,
                     ),
-                    SizedBox(width: 16,),
+                    SizedBox(
+                      width: 16,
+                    ),
                     const Text(
                       'Cancel Appointment',
                       style: TextStyle(
@@ -67,7 +69,9 @@ class _CancelPageState extends State<CancelPage> {
                         fontSize: 20,
                       ),
                     ),
-                    SizedBox(height: 24,),
+                    SizedBox(
+                      height: 16,
+                    ),
                     ListView.separated(
                       itemBuilder: (ctx, index) {
                         return GestureDetector(
@@ -82,19 +86,18 @@ class _CancelPageState extends State<CancelPage> {
                                 Transform.scale(
                                   scale: 1.3,
                                   child: Radio(
-                                      value: reason[index],
-                                      groupValue: selectedValue,
-                                      activeColor: AppColor.buttoncolor,
-                                      onChanged: (s) {
-                                        selectedValue = s;
-                                        setState(() {});
-                                      }),
+                                    value: reason[index],
+                                    groupValue: selectedValue,
+                                    activeColor: AppColor.buttoncolor,
+                                    onChanged: (s) {
+                                      selectedValue = s;
+                                      setState(() {});
+                                    },
+                                  ),
                                 ),
                                 Text(
-                                  reason[index], 
-                                  style: TextStyle(
-                                    fontSize: 18
-                                  ),
+                                  reason[index],
+                                  style: TextStyle(fontSize: 15),
                                 )
                               ],
                             ),
@@ -102,27 +105,33 @@ class _CancelPageState extends State<CancelPage> {
                         );
                       },
                       itemCount: reason.length,
-                      separatorBuilder: (context, index) => const SizedBox(height: 12,),
+                      separatorBuilder: (context, index) => const SizedBox(
+                        height: 8, // Reduced the height
+                      ),
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
                     ),
-                    SizedBox(height: 12,),
+                    SizedBox(
+                      height: 8, // Reduced the height
+                    ),
                     Container(
                       decoration: BoxDecoration(
                         color: AppColor.dividercolor,
-                        borderRadius: BorderRadius.circular(24)
+                        borderRadius:
+                            BorderRadius.circular(12), // Reduced the radius
                       ),
-                      margin: EdgeInsets.only(bottom: 24),
+                      margin: EdgeInsets.only(bottom: 12), // Reduced the margin
                       child: TextField(
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(24),
+                          contentPadding:
+                              EdgeInsets.all(12), // Reduced the padding
                           hintText: 'Write Your Reason Here\n',
                           hintStyle: TextStyle(
                             color: Colors.grey,
-                            fontSize: 18,
+                            fontSize: 15, // Reduced the font size
                           ),
                           border: InputBorder.none,
-                          hintMaxLines: 99,
+                          hintMaxLines: 5, // Reduced the max lines
                         ),
                       ),
                     ),
@@ -131,18 +140,21 @@ class _CancelPageState extends State<CancelPage> {
                       child: FilledButton(
                         style: FilledButton.styleFrom(
                           backgroundColor: AppColor.buttoncolor,
-                          padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16)
+                          padding: EdgeInsets.symmetric(
+                            vertical: 12, // Reduced the vertical padding
+                            horizontal: 16, // Reduced the horizontal padding
+                          ),
                         ),
                         onPressed: () {
-                          cancelAllert();
-                        }, 
+                          cancelAlert();
+                        },
                         child: Text(
                           'Submit',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 15, // Reduced the font size
                           ),
-                        )
-                      )
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -154,64 +166,71 @@ class _CancelPageState extends State<CancelPage> {
     );
   }
 
-  cancelAllert() {
+  cancelAlert() {
     showDialog(
       barrierDismissible: false,
-      context: context, 
+      context: context,
       builder: (context) {
         return AlertDialog(
           content: Container(
-            padding: EdgeInsets.all(32),
+            padding: EdgeInsets.all(16), // Adjusted the padding
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   Container(
                     child: Image.asset('assets/image/suksesbatal.png'),
-                    padding: EdgeInsets.only(bottom: 32),
+                    padding: EdgeInsets.only(bottom: 16),
                   ),
                   Text(
                     'Cancel Appointment Success!',
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 24,
+                      fontSize: 20, // Adjusted the font size
                       color: AppColor.buttoncolor,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 16,),
+                  SizedBox(
+                    height: 12, // Reduced the height
+                  ),
                   Text(
                     'We are very sad that you have canceled your appointment. We will always improve our service to satisfy you in the next appointment.',
-                    style: TextStyle(
-                    ),
+                    style: TextStyle(),
                     textAlign: TextAlign.center,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 32),
+                    margin: EdgeInsets.only(top: 16),
                     width: MediaQuery.of(context).size.width,
-                      child: FilledButton(
-                        style: FilledButton.styleFrom(
-                          backgroundColor: AppColor.buttoncolor,
-                          padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16)
+                    child: FilledButton(
+                      style: FilledButton.styleFrom(
+                        backgroundColor: AppColor.buttoncolor,
+                        padding: EdgeInsets.symmetric(
+                          vertical: 12, // Reduced the vertical padding
+                          horizontal: 16, // Reduced the horizontal padding
                         ),
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(AppRoute.homepage);
-                        }, 
-                        child: Text(
-                          'Submit',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        )
-                      )
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(AppRoute.homepage);
+                      },
+                      child: Text(
+                        'Submit',
+                        style: TextStyle(
+                          fontSize: 15, // Reduced the font size
+                        ),
+                      ),
+                    ),
                   )
                 ],
               ),
             ),
           ),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(48)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            // Reduced the radius
+          ),
           backgroundColor: AppColor.bgscaffolod,
         );
-      }
+      },
     );
   }
 }
