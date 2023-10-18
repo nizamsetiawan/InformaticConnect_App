@@ -11,7 +11,7 @@ class TermsConditionsPage extends StatelessWidget {
         backgroundColor: const Color(0xff181A20),
         appBar: AppBar(
           title: Padding(
-              padding: EdgeInsets.only(top: 24, left: 12),
+              padding: EdgeInsets.only(top: 24),
               child: Row(
                 children: [
                   IconButton(
