@@ -26,7 +26,7 @@ class _MentorFavoritPageState extends State<MentorFavoritPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Mentor Favorit'),
+        title: Text('Favorite Mentors'),
       ),
       body: ListView.builder(
         itemCount: widget.favoriteMentors.length,

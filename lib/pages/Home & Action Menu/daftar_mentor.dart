@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// import 'package:informaticconnect_app/config/app.route.dart';
+import 'mentor_favorit.dart';
 
 class DaftarMentorPage extends StatelessWidget {
   final List<Mentor> mentors = List.from(dummyMentors);
@@ -50,21 +52,46 @@ class MentorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(10),
-      child: Column(
-        children: <Widget>[
-          Image.asset(mentor.photo),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(mentor.name, style: TextStyle(fontSize: 20)),
-                Text('Rating: ${mentor.rating.toStringAsFixed(1)}'),
-              ],
+  margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+  elevation: 5,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(24),
+  ),
+  child: Padding(
+    padding: EdgeInsets.all(16),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          margin: EdgeInsets.only(right: 16),
+          width: 100,
+          height: 100,
+          child: ClipOval(
+            child: Image.network(
+              mentor.photo,
+              width: 90,
+              height: 90,
+              fit: BoxFit.cover,
             ),
           ),
-          IconButton(
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    mentor.name,
+                    style: TextStyle(
+                      fontFamily: 'Urbanist',
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xffe0e0e0),
+                    ),
+                  ),
+                   IconButton(
             icon: Icon(
               mentor.isFavorite ? Icons.favorite : Icons.favorite_border,
               color: mentor.isFavorite ? Colors.red : null,
@@ -75,9 +102,51 @@ class MentorCard extends StatelessWidget {
               }
             },
           ),
-        ],
-      ),
-    );
+                ],
+              ),
+              Text(
+                mentor.category,
+                style: TextStyle(
+                  fontFamily: 'Urbanist',
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xffe0e0e0),
+                ),
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.star,
+                    color: Colors.yellow,
+                    size: 15,
+                  ),
+                  Text(
+                    mentor.rating.toString(),
+                    style: TextStyle(
+                      fontFamily: 'Urbanist',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xffe0e0e0),
+                    ),
+                  ),
+                  Text(
+                    ' (${mentor.reviews} reviews)',
+                    style: TextStyle(
+                      fontFamily: 'Urbanist',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xffe0e0e0),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  ),
+);
   }
 }
 
@@ -85,7 +154,7 @@ final dummyMentors = [
   Mentor(
     id: 'm1',
     name: 'Nizam Setiawan',
-    photo: 'https://example.com/nizam.jpg',
+    photo: 'assets/image/profile.jpg',
     category: 'Front-End Web', // Tambahkan kategori
     rating: 4.8,
     reviews: 3279,
@@ -94,8 +163,8 @@ final dummyMentors = [
   Mentor(
     id: 'm1',
     name: 'IRsyad Setiawan',
-    photo: 'https://example.com/nizam.jpg',
-    category: 'Mobile-DEv Web', // Tambahkan kategori
+    photo: 'assets/image/profile.jpg',
+    category: 'Mobile-Dev', // Tambahkan kategori
     rating: 4.8,
     reviews: 3279,
     isFavorite: false,
@@ -103,7 +172,34 @@ final dummyMentors = [
   Mentor(
     id: 'm1',
     name: 'Ali Setiawan',
-    photo: 'https://example.com/nizam.jpg',
+    photo: 'assets/image/profile.jpg',
+    category: 'Back-End Web', // Tambahkan kategori
+    rating: 4.8,
+    reviews: 3279,
+    isFavorite: false,
+  ),
+  Mentor(
+    id: 'm1',
+    name: 'Zildan Setiawan',
+    photo: 'assets/image/profile.jpg',
+    category: 'Back-End Web', // Tambahkan kategori
+    rating: 4.8,
+    reviews: 3279,
+    isFavorite: false,
+  ),
+  Mentor(
+    id: 'm1',
+    name: 'Arkan Setiawan',
+    photo: 'assets/image/profile.jpg',
+    category: 'Back-End Web', // Tambahkan kategori
+    rating: 4.8,
+    reviews: 3279,
+    isFavorite: false,
+  ),
+  Mentor(
+    id: 'm1',
+    name: 'Dhenmas Setiawan',
+    photo: 'assets/image/profile.jpg',
     category: 'Back-End Web', // Tambahkan kategori
     rating: 4.8,
     reviews: 3279,
