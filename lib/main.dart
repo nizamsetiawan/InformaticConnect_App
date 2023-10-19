@@ -3,12 +3,16 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.content.page.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.page.dart';
-import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/favorites.dart';
-import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/mensearch.page.dart';
+import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/error_page.dart';
+// import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/favorites.dart';
+// import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/mensearch.page.dart';
 // import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/main_fitur.dart';
-import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/mentor.page.dart';
+// import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/mentor.page.dart';
+// import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/mentor_favorit.dart';
+import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/search_screen.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
-
+import 'package:informaticconnect_app/pages/Home & Action Menu/daftar_mentor.dart';
+// import 'package:informaticconnect_app/pages/Home & Action Menu/favorit_page.dart';
 // import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
 // import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
 
@@ -56,10 +60,11 @@ class MyApp extends StatelessWidget {
           return FutureBuilder(
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
-                return  FavoritesPage(); // halaman otomatis awal jika aplikasi diluncurkan
+                return  CobaPage(); // halaman otomatis awal jika aplikasi diluncurkan
               } else {
-                return  FavoritesPage();
+                return  CobaPage();
               }
+              
             },
             future: null,
           );
@@ -78,8 +83,13 @@ class MyApp extends StatelessWidget {
         AppRoute.coursescontent: (context) => const CoursesContentPage(),
         AppRoute.appointment: (context) => const Appointment(),
         AppRoute.profile: (context) => const ProfilePage(),
+        AppRoute.error: (context) =>  ErrorPage(),
       },
       ),
     );
   }
+}
+// Fungsi untuk mendapatkan daftar mentor favorit
+List<Mentor> getFavoriteMentors() {
+  return dummyMentors.where((mentor) => mentor.isFavorite).toList();
 }

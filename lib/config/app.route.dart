@@ -20,6 +20,8 @@ class AppRoute {
   static const mentorlist = '/mentorlist';
 
   static const mensearch = '/mensearch';
+  static const error = '/error';
+  static const mentorfav = '/mentor_favorit';
 
 
 }
