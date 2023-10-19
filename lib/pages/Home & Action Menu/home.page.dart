@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 import 'package:informaticconnect_app/models/mentor.dart';
 import 'package:english_words/english_words.dart';
+// import 'package:informaticconnect_app/models/mentorlist.dart';
 import 'package:informaticconnect_app/provider/favorite_prov.dart';
 import 'package:provider/provider.dart';
 import '../../config/app.route.dart';
@@ -124,131 +125,129 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Container(
-                      height: 60,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: AppColor.bgwidget,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: TextField(
-                        cursorHeight: 20,
-                        autofocus: false,
-                        decoration: InputDecoration(
-                          hintText: "Cari Mentor Favoritmu",
-                          prefixIcon: Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.grey,
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Stack(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              print(currentIndex);
-                            },
-                            child: CarouselSlider(
-                              items: imageList
-                                  .map(
-                                    (item) => Image.asset(
-                                      item['image_path'],
-                                      fit: BoxFit.cover,
-                                      width: double.infinity,
-                                    ),
-                                  )
-                                  .toList(),
-                              carouselController: carouselController,
-                              options: CarouselOptions(
-                                scrollPhysics: const BouncingScrollPhysics(),
-                                autoPlay: true,
-                                aspectRatio: 2,
-                                viewportFraction: 1,
-                                onPageChanged: (index, reason) {
-                                  setState(() {
-                                    currentIndex = index;
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                Container (
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: categories
-                  .map(
-                    (category) => FilterChip(
-                      selected: selectedCategories.contains(category),
-                      label: Text(category), onSelected: (selected){
-                        setState(() {
-                          if (selected){
-                          selectedCategories.add(category);
-                        }else{
-                          selectedCategories.remove(category);
-                        }
-                        });
-                }),
-                )
-                .toList(),
-              ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(15),
+                  //   child: Container(
+                  //     height: 60,
+                  //     width: double.infinity,
+                  //     decoration: BoxDecoration(
+                  //       color: AppColor.bgwidget,
+                  //       borderRadius: BorderRadius.circular(30),
+                  //     ),
+                  //     child: TextField(
+                  //       cursorHeight: 20,
+                  //       autofocus: false,
+                  //       decoration: InputDecoration(
+                  //         hintText: "Cari Mentor Favoritmu",
+                  //         prefixIcon: Icon(Icons.search),
+                  //         border: OutlineInputBorder(
+                  //           borderSide: BorderSide(
+                  //             color: Colors.grey,
+                  //             width: 2,
+                  //           ),
+                  //           borderRadius: BorderRadius.circular(30),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // Column(
+                  //   children: [
+                  //     Stack(
+                  //       children: [
+                  //         InkWell(
+                  //           onTap: () {
+                  //             print(currentIndex);
+                  //           },
+                  //           child: CarouselSlider(
+                  //             items: imageList
+                  //                 .map(
+                  //                   (item) => Image.asset(
+                  //                     item['image_path'],
+                  //                     fit: BoxFit.cover,
+                  //                     width: double.infinity,
+                  //                   ),
+                  //                 )
+                  //                 .toList(),
+                  //             carouselController: carouselController,
+                  //             options: CarouselOptions(
+                  //               scrollPhysics: const BouncingScrollPhysics(),
+                  //               autoPlay: true,
+                  //               aspectRatio: 2,
+                  //               viewportFraction: 1,
+                  //               onPageChanged: (index, reason) {
+                  //                 setState(() {
+                  //                   currentIndex = index;
+                  //                 });
+                  //               },
+                  //             ),
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ],
+                  // ),
+            //     Container (
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: categories
+            //       .map(
+            //         (category) => FilterChip(
+            //           selected: selectedCategories.contains(category),
+            //           label: Text(category), onSelected: (selected){
+            //             setState(() {
+            //               if (selected){
+            //               selectedCategories.add(category);
+            //             }else{
+            //               selectedCategories.remove(category);
+            //             }
+            //             });
+            //     }),
+            //     )
+            //     .toList(),
+            //   ),
 
-            ),
-            Expanded(child: ListView.builder(
-              itemBuilder: (context, index){
-                final mentor = filterMentors[index];
-                return Card(
-                  child: Container(
-                    decoration: const BoxDecoration(color: AppColor.buttoncolor),
-                    child:  ListTile(
-                      contentPadding: 
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      title: Text(
-                        mentor.name, 
-                        style: const TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                          ),
-                      subtitle:  Text(
-                        mentor.category, 
-                        style: const TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
-                        ),
-                    ),
-                  ),
-                );
-            }),
-            ),
-            Expanded(child: ListView.builder(
-              itemCount: words.length,
-        itemBuilder: (context, index){
-          final word = words[index];
-          return ListTile(
-          title: Text(word),
-          trailing: IconButton(
-            onPressed: () {
-              provider.toggleFavorite(word);
-            },
-            icon: provider.isExist(word)
-            ? const Icon(Icons.favorite, color: Colors.red)
-            : const Icon(Icons.favorite_border),
-          ),
-          );
-        },
-            ),
-            ),
-        
+            // ),
+            // Expanded(child: ListView.builder(
+            //   itemBuilder: (context, index){
+            //     final mentor = filterMentors[index];
+            //     return Card(
+            //       child: Container(
+            //         decoration: const BoxDecoration(color: AppColor.buttoncolor),
+            //         child:  ListTile(
+            //           contentPadding: 
+            //           const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            //           title: Text(
+            //             mentor.name, 
+            //             style: const TextStyle(
+            //               color: Colors.white, fontWeight: FontWeight.bold),
+            //               ),
+            //           subtitle:  Text(
+            //             mentor.category, 
+            //             style: const TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
+            //             ),
+            //         ),
+            //       ),
+            //     );
+            // }),
+            // ),
+        //     Expanded(child: ListView.builder(
+        // itemBuilder: (context, index){
+        //   final word = words[index];
+        //   return ListTile(
+        //   title: Text(word),
+        //   trailing: IconButton(
+        //     onPressed: () {
+        //       provider.toggleFavorite(word);
+        //     },
+        //     icon: provider.isExist(word)
+        //     ? const Icon(Icons.favorite, color: Colors.red)
+        //     : const Icon(Icons.favorite_border),
+        //   ),
+        //   );
+        // },
+        //     ),
+        //     ),
             ],
           ),
         ],

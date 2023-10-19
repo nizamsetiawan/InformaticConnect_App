@@ -17,6 +17,9 @@ class AppRoute {
   static const artikel = '/artikel';
   static const appointment = '/appointment';
 
+  static const mentorlist = '/mentorlist';
+
+  static const mensearch = '/mensearch';
 
 
 }
