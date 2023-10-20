@@ -17,8 +17,8 @@ class _AccordionState extends State<Accordion> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.only(bottom: 20),
-      color: Color(0xff1F222A),
+      margin: const EdgeInsets.only(bottom: 20),
+      color: const Color(0xff1F222A),
       child: GestureDetector(
         onTap: () {
           setState(() {
@@ -41,9 +41,9 @@ class _AccordionState extends State<Accordion> {
               ),
               _showContent
                   ? Container(
-                      padding: EdgeInsets.fromLTRB(14, 0, 14, 14),
+                      padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(
                               color: Color(0xff35383F),
@@ -51,7 +51,7 @@ class _AccordionState extends State<Accordion> {
                             ),
                           ),
                         ),
-                        padding: EdgeInsets.only(top: 14),
+                        padding: const EdgeInsets.only(top: 14),
                         child: Text(
                           widget.content,
                         ),

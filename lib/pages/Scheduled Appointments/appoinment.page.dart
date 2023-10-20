@@ -192,7 +192,7 @@ class _AppointmentState extends State<Appointment> {
               child: ListView.builder(
                 itemCount: filteredSchedules.length,
                 itemBuilder: ((context, index) {
-                  var _scheduled = filteredSchedules[index];
+                  var scheduled = filteredSchedules[index];
                   bool isLastElement = filteredSchedules.length + 1 == index;
                   if (status == FilterStatus.Upcoming) {
                     return Card(
@@ -204,7 +204,7 @@ class _AppointmentState extends State<Appointment> {
                       color: const Color(0xff1F222A),
                       child: Container(
                         padding: const EdgeInsets.all(12),
-                        child: upcomingAppointmentCard(_scheduled, context),
+                        child: upcomingAppointmentCard(scheduled, context),
                       ),
                     );
                   } else if (status == FilterStatus.Completed) {
@@ -217,7 +217,7 @@ class _AppointmentState extends State<Appointment> {
                       color: const Color(0xff1F222A),
                       child: Container(
                         padding: const EdgeInsets.all(12),
-                        child: completedAppointmentCard(_scheduled, context),
+                        child: completedAppointmentCard(scheduled, context),
                       ),
                     );
                   } else if (status == FilterStatus.Cancelled) {
@@ -233,7 +233,7 @@ class _AppointmentState extends State<Appointment> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            cancelledAppointmentCard(_scheduled),
+                            cancelledAppointmentCard(scheduled),
                           ],
                         ),
                       ),
@@ -250,7 +250,7 @@ class _AppointmentState extends State<Appointment> {
     );
   }
 
-  Column upcomingAppointmentCard(_scheduled, BuildContext context) {
+  Column upcomingAppointmentCard(scheduled, BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -262,7 +262,7 @@ class _AppointmentState extends State<Appointment> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Image.asset(
-                  _scheduled['mentor_profile'],
+                  scheduled['mentor_profile'],
                   height: 80,
                   width: 80,
                 ),
@@ -272,7 +272,7 @@ class _AppointmentState extends State<Appointment> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  _scheduled['mentor_name'],
+                  scheduled['mentor_name'],
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 16,
@@ -313,14 +313,14 @@ class _AppointmentState extends State<Appointment> {
                 Row(
                   children: [
                     Text(
-                      _scheduled['tanggal'] + ' | ',
-                      style: TextStyle(
+                      scheduled['tanggal'] + ' | ',
+                      style: const TextStyle(
                         fontSize: 12,
                       ),
                     ),
                     Text(
-                      _scheduled['jam'],
-                      style: TextStyle(
+                      scheduled['jam'],
+                      style: const TextStyle(
                         fontSize: 12,
                       ),
                     ),
@@ -378,7 +378,7 @@ class _AppointmentState extends State<Appointment> {
     );
   }
 
-  Column completedAppointmentCard(_scheduled, BuildContext context) {
+  Column completedAppointmentCard(scheduled, BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -390,7 +390,7 @@ class _AppointmentState extends State<Appointment> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Image.asset(
-                  _scheduled['mentor_profile'],
+                  scheduled['mentor_profile'],
                   height: 80,
                   width: 80,
                 ),
@@ -400,7 +400,7 @@ class _AppointmentState extends State<Appointment> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  _scheduled['mentor_name'],
+                  scheduled['mentor_name'],
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 16,
@@ -441,14 +441,14 @@ class _AppointmentState extends State<Appointment> {
                 Row(
                   children: [
                     Text(
-                      _scheduled['tanggal'] + ' | ',
-                      style: TextStyle(
+                      scheduled['tanggal'] + ' | ',
+                      style: const TextStyle(
                         fontSize: 12,
                       ),
                     ),
                     Text(
-                      _scheduled['jam'],
-                      style: TextStyle(
+                      scheduled['jam'],
+                      style: const TextStyle(
                         fontSize: 12,
                       ),
                     ),
@@ -506,7 +506,7 @@ class _AppointmentState extends State<Appointment> {
     );
   }
 
-  Row cancelledAppointmentCard(_scheduled) {
+  Row cancelledAppointmentCard(scheduled) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -515,7 +515,7 @@ class _AppointmentState extends State<Appointment> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.asset(
-              _scheduled['mentor_profile'],
+              scheduled['mentor_profile'],
               height: 80,
               width: 80,
             ),
@@ -525,7 +525,7 @@ class _AppointmentState extends State<Appointment> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              _scheduled['mentor_name'],
+              scheduled['mentor_name'],
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
@@ -566,14 +566,14 @@ class _AppointmentState extends State<Appointment> {
             Row(
               children: [
                 Text(
-                  _scheduled['tanggal'] + ' | ',
-                  style: TextStyle(
+                  scheduled['tanggal'] + ' | ',
+                  style: const TextStyle(
                     fontSize: 12,
                   ),
                 ),
                 Text(
-                  _scheduled['jam'],
-                  style: TextStyle(
+                  scheduled['jam'],
+                  style: const TextStyle(
                     fontSize: 12,
                   ),
                 ),
@@ -600,14 +600,15 @@ class _AppointmentState extends State<Appointment> {
   Future cancelAppointment(BuildContext context) {
     return (showModalBottomSheet(
         context: context,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(48))),
         backgroundColor: AppColor.bgscaffolod,
-        barrierColor: Color(0xff09101D).withOpacity(0.7),
+        barrierColor: const Color(0xff09101D).withOpacity(0.7),
         builder: (context) => Container(
-          height: 440,
+              height: 440,
               // height: 200,
-              padding: EdgeInsets.only(top: 8, left: 24, right: 24, bottom: 48),
+              padding: const EdgeInsets.only(
+                  top: 8, left: 24, right: 24, bottom: 48),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -620,8 +621,8 @@ class _AppointmentState extends State<Appointment> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 24),
-                    child: Text(
+                    padding: const EdgeInsets.symmetric(vertical: 24),
+                    child: const Text(
                       'Cancel Appointment',
                       style: TextStyle(
                         fontSize: 24,
@@ -636,8 +637,8 @@ class _AppointmentState extends State<Appointment> {
                     color: AppColor.dividercolor,
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 24),
-                    child: Text(
+                    padding: const EdgeInsets.symmetric(vertical: 24),
+                    child: const Text(
                       'Are you sure you want to cancel your appointment? \n\nOnly 50% of the funds will be returned to your account.',
                       style: TextStyle(
                         fontSize: 18,
@@ -651,44 +652,43 @@ class _AppointmentState extends State<Appointment> {
                     color: AppColor.dividercolor,
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 24),
+                    padding: const EdgeInsets.symmetric(vertical: 24),
                     child: Row(
                       children: [
                         Expanded(
-                          child: FilledButton(
-                            style: FilledButton.styleFrom(
-                              backgroundColor: AppColor.dividercolor,
-                              padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16)
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            }, 
-                            child: Text(
-                              'Back',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            )
-                          )
+                            child: FilledButton(
+                                style: FilledButton.styleFrom(
+                                    backgroundColor: AppColor.dividercolor,
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 18, horizontal: 16)),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text(
+                                  'Back',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                  ),
+                                ))),
+                        const SizedBox(
+                          width: 12,
                         ),
-                        SizedBox(width: 12,),
                         Expanded(
-                          child: FilledButton(
-                            style: FilledButton.styleFrom(
-                              backgroundColor: AppColor.buttoncolor,
-                              padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16)
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).pushNamed(AppRoute.cancel);
-                            }, 
-                            child: Text(
-                              'Yes, Cancel',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            )
-                          )
-                        )
+                            child: FilledButton(
+                                style: FilledButton.styleFrom(
+                                    backgroundColor: AppColor.buttoncolor,
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 18, horizontal: 16)),
+                                onPressed: () {
+                                  Navigator.of(context)
+                                      .pushNamed(AppRoute.cancel);
+                                },
+                                child: const Text(
+                                  'Yes, Cancel',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                  ),
+                                )))
                       ],
                     ),
                   )

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
-import 'package:informaticconnect_app/config/app.route.dart';
 import 'package:informaticconnect_app/main.dart';
 import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/error_page.dart';
 import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/mentor_favorit.dart';
-// import 'package:informaticconnect_app/main.dart';
-// import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/mentor_favorit.dart';
-// import 'package:testmobile/main.dart';
-// import 'package:testmobile/mentor_favorit.dart';
 import 'daftar_mentor.dart';
 
 class CobaPage extends StatefulWidget {
@@ -69,7 +64,9 @@ class _CobaPageState extends State<CobaPage> {
       } else {
         // Kategori berbeda yang ditekan, terapkan filter
         selectedCategory = category;
-        mentors = dummyMentors.where((mentor) => mentor.category == category).toList();
+        mentors = dummyMentors
+            .where((mentor) => mentor.category == category)
+            .toList();
       }
     });
   }
@@ -78,89 +75,84 @@ class _CobaPageState extends State<CobaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
-        leading: IconButton(
-    icon: Icon(Icons.arrow_back), // Ikon "back"
-    onPressed: () {
-      Navigator.of(context).pushNamed(AppRoute.homepage); // Arahkan kembali ke HomePage
-    },
-  ),
-        title: Text('Category Mentors'),
-        automaticallyImplyLeading: false, // Menghilangkan tombol kembali (back button)
-        actions: <Widget>[
-          // IconButton(
-          //   icon: Icon(Icons.favorite),
-          //   onPressed: navigateToFavoritesPage,
-          // ),
-        ],
+        title: const Padding(
+          padding: EdgeInsets.only(top: 24, left: 12),
+          child: Text(
+            'Categoty Mentor',
+          ),
+        ),
+        backgroundColor: const Color(0xff181A20),
+        elevation: 0.0,
+        centerTitle: false,
       ),
       body: Column(
         children: <Widget>[
           Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Container(
-                      height: 60,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: AppColor.bgwidget,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: TextField(
-                        controller: searchController,
-                        cursorHeight: 20,
-                        autofocus: false,
-                        decoration: InputDecoration(
-                          hintText: "Cari Mentor Favoritmu",
-                          prefixIcon: Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.grey,
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                            onChanged: (query) {
-                                 searchMentors(query);
-                            // Setelah perubahan hasil pencarian, cek apakah daftar mentors kosong
-                            if (mentors.isEmpty) {
-                            Navigator.push(
-                              context,
-                                MaterialPageRoute(
-                                  builder: (context) => ErrorPage(), // Ganti dengan rute yang sesuai
-            ),
-          );
-        }
-      },
-                      ),
+            padding: const EdgeInsets.all(15),
+            child: Container(
+              height: 60,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColor.bgwidget,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: TextField(
+                controller: searchController,
+                cursorHeight: 20,
+                autofocus: false,
+                decoration: InputDecoration(
+                  hintText: "Cari Mentor Favoritmu",
+                  prefixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey,
+                      width: 2,
                     ),
+                    borderRadius: BorderRadius.circular(30),
                   ),
+                ),
+                onChanged: (query) {
+                  searchMentors(query);
+                  // Setelah perubahan hasil pencarian, cek apakah daftar mentors kosong
+                  if (mentors.isEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ErrorPage(), // Ganti dengan rute yang sesuai
+                      ),
+                    );
+                  }
+                },
+              ),
+            ),
+          ),
           Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: <Widget>[
-      FilterButton(
-        category: 'Back-End Web',
-        isSelected: selectedCategory == 'Back-End Web',
-        onPressed: () {
-          filterMentorsByCategory('Back-End Web');
-        },
-      ),
-      FilterButton(
-        category: 'Front-End Web',
-        isSelected: selectedCategory == 'Front-End Web',
-        onPressed: () {
-          filterMentorsByCategory('Front-End Web');
-        },
-      ),
-      FilterButton(
-        category: 'Mobile-Dev',
-        isSelected: selectedCategory == 'Mobile-Dev',
-        onPressed: () {
-          filterMentorsByCategory('Mobile-Dev');
-        },
-      ),
-    ],
-  ),
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              FilterButton(
+                category: 'Back-End Web',
+                isSelected: selectedCategory == 'Back-End Web',
+                onPressed: () {
+                  filterMentorsByCategory('Back-End Web');
+                },
+              ),
+              FilterButton(
+                category: 'Front-End Web',
+                isSelected: selectedCategory == 'Front-End Web',
+                onPressed: () {
+                  filterMentorsByCategory('Front-End Web');
+                },
+              ),
+              FilterButton(
+                category: 'Mobile-Dev',
+                isSelected: selectedCategory == 'Mobile-Dev',
+                onPressed: () {
+                  filterMentorsByCategory('Mobile-Dev');
+                },
+              ),
+            ],
+          ),
           Expanded(
             child: mentors.isEmpty
                 ? ErrorPage() // Tampilkan halaman kesalahan jika tidak ada hasil pencarian
@@ -169,6 +161,7 @@ class _CobaPageState extends State<CobaPage> {
                     itemBuilder: (context, index) {
                       Mentor mentor = mentors[index];
                       return Card(
+                        color: AppColor.bgwidget,
                         margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
                         elevation: 5,
                         shape: RoundedRectangleBorder(
@@ -180,24 +173,25 @@ class _CobaPageState extends State<CobaPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                          margin: EdgeInsets.only(right: 16),
-                          width: 100,
-                          height: 100,
-                          child: ClipOval(
-                          child: Image.network(
-                            mentor.photo,
-                            width: 90,
-                            height: 90,
-                            fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+                                margin: EdgeInsets.only(right: 16),
+                                width: 100,
+                                height: 100,
+                                child: ClipOval(
+                                  child: Image.network(
+                                    mentor.photo,
+                                    width: 90,
+                                    height: 90,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           mentor.name,
@@ -211,7 +205,9 @@ class _CobaPageState extends State<CobaPage> {
                                         IconButton(
                                           icon: Icon(
                                             Icons.favorite,
-                                            color: mentor.isFavorite ? Colors.red : Colors.grey,
+                                            color: mentor.isFavorite
+                                                ? Colors.red
+                                                : Colors.grey,
                                           ),
                                           onPressed: () {
                                             toggleFavorite(mentor);
@@ -289,7 +285,9 @@ class FilterButton extends StatelessWidget {
         onPressed();
       },
       style: ElevatedButton.styleFrom(
-        primary: isSelected ? Colors.blue : Colors.grey, // Warna latar belakang
+        primary: isSelected
+            ? AppColor.buttoncolor
+            : AppColor.bgwidget, // Warna latar belakang
       ),
       child: Text(
         category,

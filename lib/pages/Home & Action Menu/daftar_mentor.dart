@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:informaticconnect_app/config/app.route.dart';
-import 'mentor_favorit.dart';
+import 'package:informaticconnect_app/config/app.color.dart';
 
 class DaftarMentorPage extends StatelessWidget {
   final List<Mentor> mentors = List.from(dummyMentors);
@@ -41,120 +40,120 @@ class Mentor {
   });
 }
 
-
 class MentorCard extends StatelessWidget {
   final Mentor mentor;
 
-  MentorCard({required this.mentor, onFavoritePressed}) : onFavoritePressed = onFavoritePressed;
+  MentorCard({required this.mentor, onFavoritePressed})
+      : onFavoritePressed = onFavoritePressed;
 
   final Function? onFavoritePressed;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-  margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-  elevation: 5,
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(24),
-  ),
-  child: Padding(
-    padding: EdgeInsets.all(16),
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          margin: EdgeInsets.only(right: 16),
-          width: 100,
-          height: 100,
-          child: ClipOval(
-            child: Image.network(
-              mentor.photo,
-              width: 90,
-              height: 90,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    mentor.name,
-                    style: TextStyle(
-                      fontFamily: 'Urbanist',
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xffe0e0e0),
-                    ),
-                  ),
-                   IconButton(
-            icon: Icon(
-              mentor.isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: mentor.isFavorite ? Colors.red : null,
-            ),
-            onPressed: () {
-              if (onFavoritePressed != null) {
-                onFavoritePressed!();
-              }
-            },
-          ),
-                ],
-              ),
-              Text(
-                mentor.category,
-                style: TextStyle(
-                  fontFamily: 'Urbanist',
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xffe0e0e0),
+      color: AppColor.bgwidget,
+      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              margin: EdgeInsets.only(right: 16),
+              width: 100,
+              height: 100,
+              child: ClipOval(
+                child: Image.asset(
+                  mentor.photo,
+                  width: 90,
+                  height: 90,
+                  fit: BoxFit.cover,
                 ),
               ),
-              Row(
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 15,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        mentor.name,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xffe0e0e0),
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          mentor.isFavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: mentor.isFavorite ? Colors.red : null,
+                        ),
+                        onPressed: () {
+                          if (onFavoritePressed != null) {
+                            onFavoritePressed!();
+                          }
+                        },
+                      ),
+                    ],
                   ),
                   Text(
-                    mentor.rating.toString(),
+                    mentor.category,
                     style: TextStyle(
-                      fontFamily: 'Urbanist',
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                       color: Color(0xffe0e0e0),
                     ),
                   ),
-                  Text(
-                    ' (${mentor.reviews} reviews)',
-                    style: TextStyle(
-                      fontFamily: 'Urbanist',
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xffe0e0e0),
-                    ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                        size: 15,
+                      ),
+                      Text(
+                        mentor.rating.toString(),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xffe0e0e0),
+                        ),
+                      ),
+                      Text(
+                        ' (${mentor.reviews} reviews)',
+                        style: TextStyle(
+                          fontFamily: 'Urbanist',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xffe0e0e0),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      ],
-    ),
-  ),
-);
+      ),
+    );
   }
 }
 
 final dummyMentors = [
   Mentor(
     id: 'm1',
-    name: 'Nizam Setiawan',
-    photo: 'assets/image/profile.jpg',
+    name: 'Nizam ',
+    photo: 'assets/image/logo.png',
     category: 'Front-End Web', // Tambahkan kategori
     rating: 4.8,
     reviews: 3279,
@@ -162,8 +161,8 @@ final dummyMentors = [
   ),
   Mentor(
     id: 'm1',
-    name: 'IRsyad Setiawan',
-    photo: 'assets/image/profile.jpg',
+    name: 'IRsyad',
+    photo: 'assets/image/photo1.jpg',
     category: 'Mobile-Dev', // Tambahkan kategori
     rating: 4.8,
     reviews: 3279,
@@ -171,7 +170,7 @@ final dummyMentors = [
   ),
   Mentor(
     id: 'm1',
-    name: 'Ali Setiawan',
+    name: 'Ali ',
     photo: 'assets/image/profile.jpg',
     category: 'Back-End Web', // Tambahkan kategori
     rating: 4.8,
@@ -180,7 +179,7 @@ final dummyMentors = [
   ),
   Mentor(
     id: 'm1',
-    name: 'Zildan Setiawan',
+    name: 'Zildan',
     photo: 'assets/image/profile.jpg',
     category: 'Back-End Web', // Tambahkan kategori
     rating: 4.8,
@@ -189,7 +188,7 @@ final dummyMentors = [
   ),
   Mentor(
     id: 'm1',
-    name: 'Arkan Setiawan',
+    name: 'Arkan ',
     photo: 'assets/image/profile.jpg',
     category: 'Back-End Web', // Tambahkan kategori
     rating: 4.8,
@@ -198,7 +197,7 @@ final dummyMentors = [
   ),
   Mentor(
     id: 'm1',
-    name: 'Dhenmas Setiawan',
+    name: 'Daffa',
     photo: 'assets/image/profile.jpg',
     category: 'Back-End Web', // Tambahkan kategori
     rating: 4.8,

@@ -8,7 +8,8 @@ class CourseContainer extends StatelessWidget {
   final String rating;
   final VoidCallback onTap;
 
-  CourseContainer({
+  const CourseContainer({
+    super.key,
     required this.imagepath,
     required this.title,
     required this.category,
@@ -55,7 +56,7 @@ class CourseContainer extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -70,7 +71,7 @@ class CourseContainer extends StatelessWidget {
                   const SizedBox(height: 14),
                   Text(
                     category,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.normal,
                       color: Colors.white,
@@ -79,22 +80,22 @@ class CourseContainer extends StatelessWidget {
                   const SizedBox(height: 14),
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.star,
                         color: Colors.yellow,
                         size: 12,
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Text(
                         rating,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.normal,
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(width: 5),
-                      Text(
+                      const SizedBox(width: 5),
+                      const Text(
                         "(5,376 reviews)",
                         style: TextStyle(
                           fontSize: 12,

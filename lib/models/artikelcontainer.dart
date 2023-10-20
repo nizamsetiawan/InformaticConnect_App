@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
 
 class ArtikelContainer extends StatelessWidget {
@@ -22,9 +21,8 @@ class ArtikelContainer extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsetsDirectional.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          color: AppColor.buttoncolor,
+          color: AppColor.bgscaffolod,
           borderRadius: BorderRadius.circular(24),
         ),
         margin: const EdgeInsets.only(
@@ -75,8 +73,12 @@ class ArtikelContainer extends StatelessWidget {
                   ),
                   const SizedBox(height: 14),
                   Container(
-                    color: AppColor.bgscaffolod,
                     padding: EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      color: AppColor.bgwidget,
+                      borderRadius: BorderRadius.circular(
+                          10), // Mengatur tingkat ke tumpulan
+                    ),
                     child: Text(
                       path,
                       style: TextStyle(color: AppColor.buttoncolor),

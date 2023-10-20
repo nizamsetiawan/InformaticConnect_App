@@ -18,21 +18,21 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
         appBar: AppBar(
             automaticallyImplyLeading: false,
             title: Padding(
-                padding: EdgeInsets.only(top: 24),
+                padding: const EdgeInsets.only(top: 24),
                 child: Column(
                   children: [
                     Row(
                       children: [
                         IconButton(
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
-                        Text(
+                        const Text(
                           'Help Center',
                           style: TextStyle(
                               color: Colors.white,
@@ -46,11 +46,11 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
             backgroundColor: const Color(0xff181A20),
             elevation: 0.0,
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(95),
+              preferredSize: const Size.fromHeight(95),
               child: Container(
-                margin: EdgeInsets.only(top: 48),
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                child: TabBar(
+                margin: const EdgeInsets.only(top: 48),
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: const TabBar(
                     indicatorColor: Colors.orange,
                     labelColor: Colors.orange,
                     unselectedLabelColor: Colors.grey,
@@ -77,8 +77,8 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
             Center(
               child: Container(
                 width: double.infinity,
-                padding: EdgeInsets.fromLTRB(24, 24, 24, 48),
-                child: Column(
+                padding: const EdgeInsets.fromLTRB(24, 24, 24, 48),
+                child: const Column(
                   children: [
                     Accordion(
                         title: "What is IC?",
@@ -107,19 +107,19 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
             Center(
               child: Container(
                 width: double.infinity,
-                padding: EdgeInsets.fromLTRB(24, 24, 24, 48),
+                padding: const EdgeInsets.fromLTRB(24, 24, 24, 48),
                 child: Column(
                   children: [
                     Card(
-                      margin: EdgeInsets.only(bottom: 20),
-                      color: Color(0xff1F222A),
+                      margin: const EdgeInsets.only(bottom: 20),
+                      color: const Color(0xff1F222A),
                       child: GestureDetector(
                         onTap: () {},
                         child: Container(
                           child: Column(
                             children: [
                               ListTile(
-                                title: Text("Whatsapp"),
+                                title: const Text("Whatsapp"),
                                 leading: SvgPicture.asset(
                                   'assets/icons/whatsapp.svg',
                                   color: Colors.orange,
@@ -132,15 +132,15 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
                       ),
                     ),
                     Card(
-                      margin: EdgeInsets.only(bottom: 20),
-                      color: Color(0xff1F222A),
+                      margin: const EdgeInsets.only(bottom: 20),
+                      color: const Color(0xff1F222A),
                       child: GestureDetector(
                         onTap: () {},
                         child: Container(
                           child: Column(
                             children: [
                               ListTile(
-                                title: Text("Website"),
+                                title: const Text("Website"),
                                 leading: SvgPicture.asset(
                                   'assets/icons/website.svg',
                                   color: Colors.orange,
@@ -153,15 +153,15 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
                       ),
                     ),
                     Card(
-                      margin: EdgeInsets.only(bottom: 20),
-                      color: Color(0xff1F222A),
+                      margin: const EdgeInsets.only(bottom: 20),
+                      color: const Color(0xff1F222A),
                       child: GestureDetector(
                         onTap: () {},
                         child: Container(
                           child: Column(
                             children: [
                               ListTile(
-                                title: Text("Facebook"),
+                                title: const Text("Facebook"),
                                 leading: SvgPicture.asset(
                                   'assets/icons/facebook.svg',
                                   color: Colors.orange,
@@ -174,15 +174,15 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
                       ),
                     ),
                     Card(
-                      margin: EdgeInsets.only(bottom: 20),
-                      color: Color(0xff1F222A),
+                      margin: const EdgeInsets.only(bottom: 20),
+                      color: const Color(0xff1F222A),
                       child: GestureDetector(
                         onTap: () {},
                         child: Container(
                           child: Column(
                             children: [
                               ListTile(
-                                title: Text("Twitter"),
+                                title: const Text("Twitter"),
                                 leading: SvgPicture.asset(
                                   'assets/icons/twitter.svg',
                                   color: Colors.orange,
@@ -195,23 +195,21 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
                       ),
                     ),
                     Card(
-                      margin: EdgeInsets.only(bottom: 20),
-                      color: Color(0xff1F222A),
+                      margin: const EdgeInsets.only(bottom: 20),
+                      color: const Color(0xff1F222A),
                       child: GestureDetector(
                         onTap: () {},
-                        child: Container(
-                          child: Column(
-                            children: [
-                              ListTile(
-                                title: Text("Instagram"),
-                                leading: SvgPicture.asset(
-                                  'assets/icons/instagram.svg',
-                                  color: Colors.orange,
-                                  height: 27,
-                                ),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              title: const Text("Instagram"),
+                              leading: SvgPicture.asset(
+                                'assets/icons/instagram.svg',
+                                color: Colors.orange,
+                                height: 27,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),

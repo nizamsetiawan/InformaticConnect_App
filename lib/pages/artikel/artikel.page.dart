@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:informaticconnect_app/config/app.color.dart';
-
 import '../../config/app.route.dart';
 import '../../controllers/bottomnavbar.dart';
 import '../../models/artikelcontainer.dart';
@@ -13,6 +11,7 @@ class ArtikelPage extends StatefulWidget {
 }
 
 class _ArtikelPageState extends State<ArtikelPage> {
+  int currentIndex = 0;
   int _selectedIndex = 3;
 
   void _onItemTapped(int index) {
@@ -60,7 +59,34 @@ class _ArtikelPageState extends State<ArtikelPage> {
             imagepath: "assets/image/Mask Group.png",
             title: "Teknik Informatika \nlulusan jadi apa?",
             date: "December 20 20",
-            path: "Web",
+            path: "Web/Mobile",
+            onTap: () {
+              Navigator.of(context).pushNamed(AppRoute.coursescontent);
+            },
+          ),
+          ArtikelContainer(
+            imagepath: "assets/image/courses3.png",
+            title: "Mengapa Cyber\nPenting di Era Digital",
+            date: "May 09 12",
+            path: "Cyber",
+            onTap: () {
+              Navigator.of(context).pushNamed(AppRoute.coursescontent);
+            },
+          ),
+          ArtikelContainer(
+            imagepath: "assets/image/courses2.png",
+            title: "Jaringan 5G dan\n Dampaknya",
+            date: "January 2 7",
+            path: "Jaringan",
+            onTap: () {
+              Navigator.of(context).pushNamed(AppRoute.coursescontent);
+            },
+          ),
+          ArtikelContainer(
+            imagepath: "assets/image/courses4.png",
+            title: "Data sebagai \nAset Bisnis",
+            date: "May 2 2",
+            path: "Data",
             onTap: () {
               Navigator.of(context).pushNamed(AppRoute.coursescontent);
             },

@@ -7,23 +7,24 @@ class ErrorPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-    icon: Icon(Icons.arrow_back), // Ikon "back"
-    onPressed: () {
-      Navigator.of(context).pushNamed(AppRoute.homepage); // Arahkan kembali ke HomePage
-    },
-  ),
+          icon: Icon(Icons.arrow_back), // Ikon "back"
+          onPressed: () {
+            Navigator.of(context)
+                .pushNamed(AppRoute.homepage); // Arahkan kembali ke HomePage
+          },
+        ),
       ),
       body: Center(
-      child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Image.asset('assets/image/error_image.png'), // Ganti 'error_image.png' dengan path gambar Anda
-        SizedBox(height: 16),
-        Text('Tidak ada hasil yang ditemukan.'),
-      ],
-      ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+                'assets/image/error_image.png'), // Ganti 'error_image.png' dengan path gambar Anda
+            SizedBox(height: 16),
+            Text('Tidak ada hasil yang ditemukan.'),
+          ],
+        ),
       ),
     );
   }
 }
-
