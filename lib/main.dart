@@ -7,10 +7,27 @@ import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/error_page.
 import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/mentor_list.dart';
 import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/search_screen.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
+
 import 'package:informaticconnect_app/pages/Home & Action Menu/daftar_mentor.dart';
 import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/login.page.dart';
 import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/signin.page.dart';
 import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/signup.page.dart';
+
+import 'package:informaticconnect_app/pages/Scheduled%20Appointments/cancel.appointment.page.dart';
+
+// import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
+// import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
+
+// import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
+
+import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/login.page.dart';
+import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/signin.page.dart';
+import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/signup.page.dart';
+import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/forgetpassword.page.dart';
+
+// import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
+
+
 import 'package:informaticconnect_app/pages/Scheduled%20Appointments/appoinment.page.dart';
 import 'package:informaticconnect_app/pages/onboarding/splashscreen.page.dart';
 import 'config/app.color.dart';
@@ -33,6 +50,7 @@ class MyApp extends StatelessWidget {
             GoogleFonts.poppinsTextTheme().apply(bodyColor: Colors.white),
         scaffoldBackgroundColor: AppColor.bgscaffolod,
         primaryColor: AppColor.buttoncolor,
+        unselectedWidgetColor: AppColor.buttoncolor,
       ),
       routes: {
         '/': (context) {
@@ -52,8 +70,9 @@ class MyApp extends StatelessWidget {
         AppRoute.splashscreen: (context) => const SplashscreenPage(),
         AppRoute.login: (context) => const LoginPage(),
         AppRoute.signin: (context) => const SigninPage(),
-        AppRoute.signup: (context) =>
-            const SignupPage(), //identifikasi sini tiap halaman
+        AppRoute.signup: (context) => const SignupPage(),
+        AppRoute.forgetpassword: (context) =>
+            const ForgetPasswordPage(), //identifikasi sini tiap halaman
 
         AppRoute.homepage: (context) =>
             const HomePage(), //identifikasi sini tiap halaman
@@ -62,7 +81,12 @@ class MyApp extends StatelessWidget {
         AppRoute.coursescontent: (context) => const CoursesContentPage(),
         AppRoute.appointment: (context) => const Appointment(),
         AppRoute.profile: (context) => const ProfilePage(),
+
         AppRoute.error: (context) =>  ErrorPage(),
+
+        AppRoute.cancel: (context) => const CancelPage(),
+        AppRoute.artikel: (p0) => const CoursesPage()
+
       },
       );
   }

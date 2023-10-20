@@ -6,10 +6,9 @@ class AppRoute {
   static const login = '/login';
   static const signin = '/signin';
   static const signup = '/signup';
-
+  static const forgetpassword = '/forgetpassword';
 
   static const homepage = '/homepage';
-
 
   static const courses = '/courses';
   static const coursescontent = '/coursescontent';
@@ -17,11 +16,16 @@ class AppRoute {
   static const artikel = '/artikel';
   static const appointment = '/appointment';
 
+
   static const mentorlist = '/mentorlist';
 
   static const mensearch = '/mensearch';
   static const error = '/error';
   static const mentorfav = '/mentor_favorit';
+
+  static const cancel = '/cancel';
+
+
 
 
 }
