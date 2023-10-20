@@ -41,8 +41,18 @@ class _CoursesPageState extends State<CoursesPage> {
         onTap: _onItemTapped,
       ),
       appBar: AppBar(
-        title: const Text("Courses"),
-        backgroundColor: AppColor.bgscaffolod,
+        title: const Padding(
+          padding: EdgeInsets.only(top: 24, left: 12),
+          child: Text(
+            'Articles',
+            style: TextStyle(
+                color: Colors.white, fontSize: 24, fontWeight: FontWeight.w700),
+          ),
+        ),
+        backgroundColor: const Color(0xff181A20),
+        elevation: 0.0,
+        automaticallyImplyLeading: false,
+        centerTitle: false,
       ),
       body: ListView(
         children: [

@@ -60,6 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           backgroundColor: const Color(0xff181A20),
           elevation: 0.0,
+          centerTitle: false,
         ),
         body: Center(
           child: Container(
