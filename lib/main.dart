@@ -3,7 +3,16 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.content.page.dart';
 import 'package:informaticconnect_app/pages/Courses/courses.page.dart';
+import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/error_page.dart';
+import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/mentor_list.dart';
+import 'package:informaticconnect_app/pages/Home%20&%20Action%20Menu/search_screen.dart';
 import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
+
+import 'package:informaticconnect_app/pages/Home & Action Menu/daftar_mentor.dart';
+import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/login.page.dart';
+import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/signin.page.dart';
+import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/signup.page.dart';
+
 import 'package:informaticconnect_app/pages/Scheduled%20Appointments/cancel.appointment.page.dart';
 
 // import 'package:informaticconnect_app/pages/Profile%20&%20Settings/profile.page.dart';
@@ -18,8 +27,8 @@ import 'package:informaticconnect_app/pages/Sign%20up%20&%20Sign%20in/forgetpass
 
 // import 'package:informaticconnect_app/pages/artikel/artikel.page.dart';
 
-import 'package:informaticconnect_app/pages/Scheduled%20Appointments/appoinment.page.dart';
 
+import 'package:informaticconnect_app/pages/Scheduled%20Appointments/appoinment.page.dart';
 import 'package:informaticconnect_app/pages/onboarding/splashscreen.page.dart';
 import 'config/app.color.dart';
 import 'config/app.route.dart';
@@ -33,7 +42,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -48,10 +57,11 @@ class MyApp extends StatelessWidget {
           return FutureBuilder(
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.data == null || snapshot.data!.id == null) {
-                return const SplashscreenPage(); // halaman otomatis awal jika aplikasi diluncurkan
+                return  HomePage(); // halaman otomatis awal jika aplikasi diluncurkan
               } else {
-                return const SplashscreenPage();
+                return  HomePage();
               }
+              
             },
             future: null,
           );
@@ -71,9 +81,17 @@ class MyApp extends StatelessWidget {
         AppRoute.coursescontent: (context) => const CoursesContentPage(),
         AppRoute.appointment: (context) => const Appointment(),
         AppRoute.profile: (context) => const ProfilePage(),
+
+        AppRoute.error: (context) =>  ErrorPage(),
+
         AppRoute.cancel: (context) => const CancelPage(),
         AppRoute.artikel: (p0) => const CoursesPage()
+
       },
-    );
+      );
   }
+}
+// Fungsi untuk mendapatkan daftar mentor favorit
+List<Mentor> getFavoriteMentors() {
+  return dummyMentors.where((mentor) => mentor.isFavorite).toList();
 }

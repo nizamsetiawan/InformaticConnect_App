@@ -16,7 +16,15 @@ class AppRoute {
   static const artikel = '/artikel';
   static const appointment = '/appointment';
 
+
+  static const mentorlist = '/mentorlist';
+
+  static const mensearch = '/mensearch';
+  static const error = '/error';
+  static const mentorfav = '/mentor_favorit';
+
   static const cancel = '/cancel';
+
 
 
 
