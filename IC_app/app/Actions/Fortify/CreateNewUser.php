@@ -2,7 +2,7 @@
 
 namespace App\Actions\Fortify;
 
-use App\Models\Informatic;
+use App\Models\Mentor;
 use App\Models\User;
 use App\Models\UserDetails;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +17,8 @@ class CreateNewUser implements CreatesNewUsers
     /**
      * Validate and create a newly registered user.
      *
-     * @param  array<string, string>  $input
+     * @param  array  $input
+     * @return \App\Models\User
      */
     public function create(array $input)
     {
@@ -31,14 +32,21 @@ class CreateNewUser implements CreatesNewUsers
         $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
-            'type' => 'mentor',
             'password' => Hash::make($input['password']),
         ]);
-        
-        $mentorInfo = Informatic::created([
-            'mentor_id' => $user->id,
-            'status' => 'active,'
+
+        $doctorInfo = Mentor::create([
+            'men_id' => $user->id,
+            'status' => 'active'
         ]);
+
+        $userInfo = UserDetails::create([
+            'user_id' => $user->id,
+            'status' => 'active'
+        ]);
+
         return $user;
     }
 }
+
+?>

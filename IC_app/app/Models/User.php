@@ -25,7 +25,6 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'type',
         'email',
         'password',
     ];
@@ -49,7 +48,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
+    ]; 
 
     /**
      * The accessors to append to the model's array form.
@@ -60,9 +59,10 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function informatic(){
-        return $this->hasOne(Informatic::class, 'mentor_id');
+    public function mentors(){
+        return $this->hasOne(Mentor::class, 'men_id');
     }
+
     public function user_details(){
         return $this->hasOne(UserDetails::class, 'user_id');
     }
