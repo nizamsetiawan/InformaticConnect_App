@@ -576,7 +576,7 @@ class _MentorappointmentState extends State<Mentorappointment> {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(height: 24),
+                                  const SizedBox(height: 20),
                                   Container(
                                     padding:const EdgeInsets.only(left: 20, right: 20, ),
                                     width: double.infinity,
