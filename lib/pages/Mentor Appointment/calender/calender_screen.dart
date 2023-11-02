@@ -119,6 +119,7 @@ class _DarkBookappointmentState extends State<DarkBookappointment> {
         body: SingleChildScrollView(
           child: Center(
             child: Container(
+<<<<<<< HEAD
               padding: EdgeInsets.all(25),
               child: Column(
                 children: [
@@ -138,6 +139,27 @@ class _DarkBookappointmentState extends State<DarkBookappointment> {
                       ),
                     ),
                   ),
+=======
+
+              padding: EdgeInsets.all(25),
+              child: Column(
+                children: [
+                  SizedBox(height: 20,),
+             const   Align(
+                  alignment: Alignment.centerLeft,
+                  child:
+                   Text(
+                    
+                          'Select Date',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontFamily: 'Urbanist',
+                            fontWeight: FontWeight.w700,
+                            height: 0.06,
+                          ),
+                        ),),
+>>>>>>> 39329035c4f23abce264dc7f30c7e4afe9a39e84
                   Card(
                     color: AppColor.bgwidget,
                     elevation: 5,
@@ -150,9 +172,13 @@ class _DarkBookappointmentState extends State<DarkBookappointment> {
                       initialStartDate: widget.initialStartDate,
                     ),
                   ),
+<<<<<<< HEAD
                   SizedBox(
                     height: 20,
                   ),
+=======
+                  SizedBox(height: 20,),
+>>>>>>> 39329035c4f23abce264dc7f30c7e4afe9a39e84
                   Container(
                     width: double.infinity,
                     child: Column(
@@ -161,6 +187,7 @@ class _DarkBookappointmentState extends State<DarkBookappointment> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
+<<<<<<< HEAD
                           margin: EdgeInsets.only(top: 25),
                           child: const Text(
                             'Select Hour',
@@ -177,14 +204,43 @@ class _DarkBookappointmentState extends State<DarkBookappointment> {
                         GridView.builder(
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
+=======
+                          
+                          margin: EdgeInsets.only(top: 25),
+                          child :
+                        const Text(
+                        
+                          'Select Hour',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontFamily: 'Urbanist',
+                            fontWeight: FontWeight.w700,
+                            height: 0.06,
+                          ),
+                        ),),
+                        const SizedBox(height: 16),
+                        GridView.builder(
+                          gridDelegate:
+                            const  SliverGridDelegateWithFixedCrossAxisCount(
+>>>>>>> 39329035c4f23abce264dc7f30c7e4afe9a39e84
                             crossAxisCount: 3, // 3 item per baris
                             mainAxisSpacing: 10, // Jarak vertikal antara item
                             crossAxisSpacing:
                                 10, // Jarak horizontal antara item
+<<<<<<< HEAD
                             childAspectRatio: 2.5,
                             // Sesuaikan dengan perbandingan lebar dan tinggi yang diinginkan
                           ),
                           itemCount: times.length,
+=======
+                            childAspectRatio:
+                                2.5, 
+                                // Sesuaikan dengan perbandingan lebar dan tinggi yang diinginkan
+                          ),
+                          itemCount: times.length,
+                          
+>>>>>>> 39329035c4f23abce264dc7f30c7e4afe9a39e84
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) {
@@ -222,6 +278,7 @@ class _DarkBookappointmentState extends State<DarkBookappointment> {
                       ],
                     ),
                   ),
+<<<<<<< HEAD
                   const SizedBox(
                     height: 30,
                   ),
@@ -249,6 +306,34 @@ class _DarkBookappointmentState extends State<DarkBookappointment> {
                     ),
                   ),
                 ],
+=======
+                       const  SizedBox(height: 30,),
+               
+                  ElevatedButton(
+                    
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => DarkBookappointment(),
+                  )),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+             padding: const EdgeInsets.symmetric(
+                      vertical: 15.0,
+                      horizontal: 130.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  child: const Text(
+                    'Next',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+>>>>>>> 39329035c4f23abce264dc7f30c7e4afe9a39e84
               ),
             ),
           ),
