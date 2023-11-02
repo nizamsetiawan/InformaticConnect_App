@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:informaticconnect_app/config/app.color.dart';
+import 'package:informaticconnect_app/pages/Mentor%20Appointment/mentorappoiment.dart';
 
 import '../../config/app.route.dart';
 import '../../controllers/bottomnavbar.dart';
@@ -268,65 +269,70 @@ class _AppointmentState extends State<Appointment> {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  scheduled['mentor_name'],
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    const Text(
-                      'Messaging - ',
-                      style: TextStyle(
-                        fontSize: 12,
-                      ),
+            InkWell(
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Mentorappointment(),
+              )),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    scheduled['mentor_name'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          border:
-                              Border.all(color: AppColor.buttoncolor, width: 1),
-                          borderRadius: BorderRadius.circular(4)),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 2),
-                      child: Text(
-                        status.name,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.buttoncolor,
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      const Text(
+                        'Messaging - ',
+                        style: TextStyle(
                           fontSize: 12,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      scheduled['tanggal'] + ' | ',
-                      style: const TextStyle(
-                        fontSize: 12,
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: AppColor.buttoncolor, width: 1),
+                            borderRadius: BorderRadius.circular(4)),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 2),
+                        child: Text(
+                          status.name,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.buttoncolor,
+                            fontSize: 12,
+                          ),
+                        ),
                       ),
-                    ),
-                    Text(
-                      scheduled['jam'],
-                      style: const TextStyle(
-                        fontSize: 12,
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        scheduled['tanggal'] + ' | ',
+                        style: const TextStyle(
+                          fontSize: 12,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      Text(
+                        scheduled['jam'],
+                        style: const TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             const Spacer(),
             Container(
