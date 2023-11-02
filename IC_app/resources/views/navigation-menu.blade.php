@@ -16,6 +16,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                {{-- Artikel --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('artikel') }}" :active="request()->routeIs('artikel')">
+                        {{ __('Artikel') }}
+                    </x-nav-link>
+                </div>
+                {{-- End Artikel --}}
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
