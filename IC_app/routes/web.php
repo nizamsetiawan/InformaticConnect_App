@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,3 +80,55 @@ Route::middleware([
     Route::post('/update_artikel/{id}', [ArtikelController::class, 'update'])->name('update_artikel');
 });
 // End Artikel
+
+// Course
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/course', [CourseController::class, 'index'])->name('course');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/create_course', function () {
+        return view('course/create_course');
+    })->name('create_course');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::post('/store_course', [CourseController::class, 'store'])->name('store_course');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/delete_course/{id}', [CourseController::class, 'destroy'])->name('delete_course');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('course/edit_course/{id}', [CourseController::class, 'edit'])->name('edit_course');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::post('/update_course/{id}', [CourseController::class, 'update'])->name('update_course');
+});
+// End Course

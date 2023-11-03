@@ -1,42 +1,43 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Edit Artikel') }}
+            {{ __('Create Course') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <form action="/update_artikel/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+
+
+            <form action="/store_course" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Judul</label>
-                    <input type="text" class="form-control" id="judul_artikel" name="judul_artikel" value="{{ $data->judul_artikel }}">
+                    <input type="text" class="form-control" id="judul_course" name="judul_course" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Isi</label>
-                    <input type="text" class="form-control" id="isi_artikel" name="isi_artikel" value="{{ $data->isi_artikel }}">
+                    <input type="text" class="form-control" id="isi_course" name="isi_course" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Kategori</label>
-                    <select name="kategori_artikel" id="kategori_artikel" class="form-control">
-                        <option selected>{{ $data->kategori_artikel }}</option>
+                    <select name="kategori_course" id="kategori_course" class="form-control">
                         <option value="Website">Website</option>
                         <option value="Mobile">Mobile</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tanggal</label>
-                    <input type="date" class="form-control" id="tgl_artikel" name="tgl_artikel" value="{{ $data->tgl_artikel }}">
+                    <input type="date" class="form-control" id="tgl_course" name="tgl_course" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Gambar</label>
-                    <img src="{{ asset('storage/artikel/'.$data->gambar_artikel) }}" alt="" style="width: 150px;">
-                    <br>
-                    <input type="file" class="form-control" id="gambar_artikel" name="gambar_artikel" aria-describedby="emailHelp" required>
+                    <label for="exampleInputEmail1" class="form-label">Link Youtube</label>
+                    <input type="text" class="form-control" id="link_course" name="link_course" aria-describedby="emailHelp" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+
+
         </div>
     </div>
 </x-app-layout>
